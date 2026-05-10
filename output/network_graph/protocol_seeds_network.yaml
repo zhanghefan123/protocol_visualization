@@ -1,0 +1,436 @@
+protocols:
+  3PC:
+    rfcs:
+    - 9481
+    - 9523
+  AGGFRAG:
+    rfcs:
+    - 9347
+  AH:
+    rfcs:
+    - 1005
+    - 4302
+  AX-25:
+    rfcs:
+    - 1226
+  BBN-RCC-MON:
+    rfcs:
+    - 1028
+    - 1076
+    - 1147
+    - 1271
+    - 1333
+    - 1470
+    - 1513
+    - 1565
+    - 1566
+    - 1567
+  BIT-EMU:
+    rfcs:
+    - 9801
+  BR-SAT-MON:
+    rfcs:
+    - 1147
+    - 1271
+    - 1470
+  CBT:
+    rfcs:
+    - 2189
+  COMPAQ-PEER:
+    rfcs:
+    - 9481
+  CRUDP:
+    rfcs:
+    - 6282
+  DCCP:
+    rfcs:
+    - 4340
+    - 4342
+  DCN-MEAS:
+    rfcs:
+    - 2063
+    - 2064
+    - 2123
+    - 2720
+    - 2722
+  DDP:
+    rfcs:
+    - 1134
+    - 1171
+    - 4296
+    - 5042
+  DGP:
+    rfcs:
+    - 1009
+    - 1254
+  DSR:
+    rfcs:
+    - 3927
+    - 4728
+  EGP:
+    rfcs:
+    - 888
+  EIGRP:
+    rfcs:
+    - 7868
+  ENCAP:
+    rfcs:
+    - 1241
+  ESP:
+    rfcs:
+    - 3686
+    - 4303
+  ETHERIP:
+    rfcs:
+    - 3378
+  ETHERNET:
+    rfcs:
+    - 8986
+    label: IP proto 143 · Ethernet payload in IPv6 (RFC8986 / SRv6)
+  FC:
+    rfcs:
+    - 6172
+  GGP:
+    rfcs:
+    - 823
+  GRE:
+    rfcs:
+    - 1702
+    - 2784
+    - 3147
+    - 4023
+    - 5845
+  HIP:
+    rfcs:
+    - 5201
+    - 7401
+  HMP:
+    rfcs:
+    - 869
+    - 1028
+    - 1076
+    - 1147
+    - 1271
+    - 1470
+    - 1513
+    - 1566
+    - 1567
+  I-NLSP:
+    rfcs:
+    - 1244
+    - 6698
+    - 7919
+  ICMP:
+    rfcs:
+    - 792
+  IDPR:
+    rfcs:
+    - 1478
+    - 1479
+    - 1519
+    - 4632
+  IDPR-CMTP:
+    rfcs:
+    - 1002
+    - 1008
+    - 1301
+    - 6698
+    - 7919
+    - 9548
+  IDRP:
+    rfcs:
+    - 5773
+  IFMP:
+    rfcs:
+    - 1953
+    - 8532
+    - 9481
+  IGMP:
+    rfcs:
+    - 1112
+    - 2236
+  IL:
+    rfcs:
+    - 821
+  IPCOMP:
+    rfcs:
+    - 2393
+    - 3173
+  IPCV:
+    rfcs:
+    - 1066
+  IPIP:
+    rfcs:
+    - 1740
+  IPPC:
+    rfcs:
+    - 1066
+  IPV6-FRAG:
+    rfcs:
+    - 3128
+    - 3786
+  IRTP:
+    rfcs:
+    - 938
+    - 1045
+    - 1379
+    - 1644
+    - 2371
+  ISO-IP:
+    rfcs:
+    - 1066
+    - 1070
+    - 1436
+  ISO-TP4:
+    rfcs:
+    - 905
+    - 1250
+    - 9481
+    - 9523
+  L2TP:
+    rfcs:
+    - 3931
+  LARP:
+    rfcs:
+    - 1250
+  MANET:
+    rfcs:
+    - 5498
+    - 5614
+  MERIT-INP:
+    rfcs:
+    - 1250
+    - 2795
+    - 8864
+    - 9481
+    - 9507
+    - 9508
+    - 9523
+  MFE-NSP:
+    rfcs:
+    - 1250
+    - 9481
+    - 9523
+  MICP:
+    rfcs:
+    - 1463
+    - 3002
+  MIN-IPV4:
+    rfcs:
+    - 2004
+  MOBILITY-HEADER:
+    rfcs:
+    - 2002
+    - 3220
+    - 3344
+    - 3775
+    - 6275
+  MPLS-IN-IP:
+    rfcs:
+    - 4023
+  MUX:
+    rfcs:
+    - 1692
+    - 4553
+    - 5087
+    - 5604
+    - 5761
+    - 6766
+  NARP:
+    rfcs:
+    - 1735
+  NETBLT:
+    rfcs:
+    - 969
+    - 998
+    - 1030
+    - 1945
+    - 1986
+  NSH:
+    rfcs:
+    - 9491
+  NVP-II:
+    rfcs:
+    - 741
+    - 9438
+    - 9507
+    - 9508
+    - 9546
+  OSPFIGP:
+    rfcs:
+    - 1583
+    - 2328
+    - 5340
+  PGM:
+    rfcs:
+    - 3208
+  PIM:
+    rfcs:
+    - 2117
+    - 7761
+  PRM:
+    rfcs:
+    - 1273
+    - 2063
+    - 2064
+    - 2123
+    - 2720
+    - 2722
+    - 8913
+  PTP:
+    rfcs:
+    - 8173
+  PVP:
+    rfcs:
+    - 4110
+  RDP:
+    rfcs:
+    - 908
+    - 9697
+  ROHC:
+    rfcs:
+    - 3095
+    - 5858
+  RSVP:
+    rfcs:
+    - 2205
+    - 3209
+  RSVP-E2E-IGNORE:
+    rfcs:
+    - 2210
+    - 3175
+  RVD:
+    rfcs:
+    - 9481
+    - 9507
+    - 9508
+    - 9523
+  SAT-MON:
+    rfcs:
+    - 1147
+    - 1271
+    - 1470
+  SCC-SP:
+    rfcs:
+    - 3557
+  SCTP:
+    rfcs:
+    - 2960
+  SDRP:
+    rfcs:
+    - 1940
+  SHIM6:
+    rfcs:
+    - 5533
+  SM:
+    rfcs:
+    - 9260
+  SMP:
+    rfcs:
+    - 3292
+    - 3295
+  SPRITE-RPC:
+    rfcs:
+    - 1250
+    - 8864
+    - 9523
+    - 9537
+  SRP:
+    rfcs:
+    - 4975
+  ST:
+    rfcs:
+    - 1190
+    - 1819
+  SWIPE:
+    rfcs:
+    - 1211
+  TCP:
+    rfcs:
+    - 9293
+    - 9740
+  TLSP:
+    rfcs:
+    - 7919
+  TP:
+    rfcs:
+    - 8088
+    - 8460
+    - 9651
+  TRUNK-2:
+    rfcs:
+    - 4904
+  UDP:
+    rfcs:
+    - 768
+    - 1002
+    - 2508
+    - 3095
+    - 9946
+  UDPLITE:
+    rfcs:
+    - 3828
+  UTI:
+    rfcs:
+    - 9616
+  VISA:
+    rfcs:
+    - 1436
+    - 9481
+  VMTP:
+    rfcs:
+    - 1045
+  VRRP:
+    rfcs:
+    - 9481
+    - 9568
+  WB-EXPAK:
+    rfcs:
+    - 4348
+    - 4352
+    - 4424
+    - 4867
+    - 5188
+  WB-MON:
+    rfcs:
+    - 1147
+    - 1271
+    - 1470
+  WESP:
+    rfcs:
+    - 5840
+  WSN:
+    rfcs:
+    - 376
+    - 9438
+  XNET:
+    rfcs:
+    - 685
+    - 909
+    - 3707
+    - 5128
+    - 5265
+    - 5330
+    - 6806
+  IPV4:
+    rfcs:
+    - 791
+    label: IPv4 · Internet Protocol (RFC791; not derived from IANA decimal-4 encapsulation
+      row)
+  IPV6:
+    rfcs:
+    - 1091
+    - 1505
+    - 1885
+    - 2132
+    - 2463
+    - 4443
+    - 7272
+    - 8200
+    - 8250
+    label: IPv6 · Internet Protocol (RFC8200; IANA decimal 41 cites RFC2473 tunneling,
+      not the IPv6 spec)
+expand:
+  enabled: true
+  max_depth: 1
+  max_rfcs_total: 250

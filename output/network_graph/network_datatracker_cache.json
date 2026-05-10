@@ -1,0 +1,2623 @@
+{
+"GRE": {
+"queries": [
+"Generic Routing Encapsulation",
+"GRE",
+"Generic Routing",
+"Encapsulation",
+"Generic",
+"Routing"
+],
+"query": "Generic Routing Encapsulation",
+"hits": [
+{
+"rfc_number": 5845,
+"title": "Generic Routing Encapsulation (GRE) Key Option for Proxy Mobile IPv6",
+"name": "rfc5845"
+},
+{
+"rfc_number": 4023,
+"title": "Encapsulating MPLS in IP or Generic Routing Encapsulation (GRE)",
+"name": "rfc4023"
+},
+{
+"rfc_number": 3147,
+"title": "Generic Routing Encapsulation over CLNS Networks",
+"name": "rfc3147"
+},
+{
+"rfc_number": 2784,
+"title": "Generic Routing Encapsulation (GRE)",
+"name": "rfc2784"
+},
+{
+"rfc_number": 1702,
+"title": "Generic Routing Encapsulation over IPv4 networks",
+"name": "rfc1702"
+}
+]
+},
+"EGP": {
+"queries": [
+"Exterior Gateway Protocol",
+"EGP",
+"Exterior Gateway",
+"Exterior",
+"Protocol",
+"Gateway"
+],
+"query": "Exterior Gateway Protocol",
+"hits": []
+},
+"ESP": {
+"queries": [
+"Encap Security Payload",
+"ESP",
+"Encap Security",
+"Security",
+"Payload",
+"Encap"
+],
+"query": "Encap Security Payload",
+"hits": [
+{
+"rfc_number": 3686,
+"title": "Using Advanced Encryption Standard (AES) Counter Mode With IPsec Encapsulating Security Payload (ESP)",
+"name": "rfc3686"
+}
+]
+},
+"HMP": {
+"queries": [
+"Host Monitoring",
+"HMP",
+"Monitoring",
+"Host"
+],
+"query": "Host Monitoring",
+"hits": [
+{
+"rfc_number": 1567,
+"title": "X.500 Directory Monitoring MIB",
+"name": "rfc1567"
+},
+{
+"rfc_number": 1566,
+"title": "Mail Monitoring MIB",
+"name": "rfc1566"
+},
+{
+"rfc_number": 1513,
+"title": "Token Ring Extensions to the Remote Network Monitoring MIB",
+"name": "rfc1513"
+},
+{
+"rfc_number": 1470,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1470"
+},
+{
+"rfc_number": 1271,
+"title": "Remote Network Monitoring Management Information Base",
+"name": "rfc1271"
+},
+{
+"rfc_number": 1147,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1147"
+},
+{
+"rfc_number": 1076,
+"title": "HEMS monitoring and control language",
+"name": "rfc1076"
+},
+{
+"rfc_number": 1028,
+"title": "Simple Gateway Monitoring Protocol",
+"name": "rfc1028"
+}
+]
+},
+"ETHERIP": {
+"queries": [
+"Ethernet-within-IP Encapsulation",
+"ETHERIP",
+"Ethernet-within-IP",
+"Encapsulation"
+],
+"query": "Ethernet-within-IP Encapsulation",
+"hits": [
+{
+"rfc_number": 3378,
+"title": "EtherIP: Tunneling Ethernet Frames in IP Datagrams",
+"name": "rfc3378"
+}
+]
+},
+"MANET": {
+"queries": [
+"MANET Protocols",
+"MANET",
+"Protocols"
+],
+"query": "MANET Protocols",
+"hits": [
+{
+"rfc_number": 5614,
+"title": "Mobile Ad Hoc Network (MANET) Extension of OSPF Using Connected Dominating Set (CDS) Flooding",
+"name": "rfc5614"
+},
+{
+"rfc_number": 5498,
+"title": "IANA Allocations for Mobile Ad Hoc Network (MANET) Protocols",
+"name": "rfc5498"
+}
+]
+},
+"DSR": {
+"queries": [
+"Dynamic Source Routing Protocol",
+"DSR",
+"Dynamic Source Routing",
+"Dynamic Source",
+"Protocol",
+"Dynamic",
+"Routing",
+"Source"
+],
+"query": "Dynamic Source Routing Protocol",
+"hits": [
+{
+"rfc_number": 4728,
+"title": "The Dynamic Source Routing Protocol (DSR) for Mobile Ad Hoc Networks for IPv4",
+"name": "rfc4728"
+},
+{
+"rfc_number": 3927,
+"title": "Dynamic Configuration of IPv4 Link-Local Addresses",
+"name": "rfc3927"
+}
+]
+},
+"L2TP": {
+"queries": [
+"Layer Two Tunneling Protocol",
+"L2TP",
+"Layer Two Tunneling",
+"Layer Two",
+"Tunneling",
+"Protocol",
+"Layer"
+],
+"query": "Layer Two Tunneling Protocol",
+"hits": []
+},
+"AGGFRAG": {
+"queries": [
+"AGGFRAG encapsulation payload for ESP",
+"AGGFRAG",
+"AGGFRAG encapsulation payload",
+"AGGFRAG encapsulation",
+"encapsulation",
+"payload"
+],
+"query": "AGGFRAG encapsulation payload for ESP",
+"hits": []
+},
+"GGP": {
+"queries": [
+"Gateway-to-Gateway",
+"GGP"
+],
+"query": "Gateway-to-Gateway",
+"hits": []
+},
+"ICMP": {
+"queries": [
+"Internet Control Message",
+"ICMP",
+"Internet Control",
+"Internet",
+"Control",
+"Message"
+],
+"query": "Internet Control Message",
+"hits": []
+},
+"AH": {
+"queries": [
+"Authentication Header",
+"AH",
+"Authentication",
+"Header"
+],
+"query": "Authentication Header",
+"hits": [
+{
+"rfc_number": 1005,
+"title": "ARPANET AHIP-E Host Access Protocol (enhanced AHIP)",
+"name": "rfc1005"
+}
+]
+},
+"IGMP": {
+"queries": [
+"Internet Group Management",
+"IGMP",
+"Internet Group",
+"Management",
+"Internet",
+"Group"
+],
+"query": "Internet Group Management",
+"hits": [
+{
+"rfc_number": 2236,
+"title": "Internet Group Management Protocol, Version 2",
+"name": "rfc2236"
+}
+]
+},
+"ETHERNET": {
+"queries": [
+"Ethernet"
+],
+"query": "Ethernet",
+"hits": []
+},
+"BIT-EMU": {
+"queries": [
+"Bit-stream Emulation",
+"BIT-EMU",
+"Bit-stream",
+"Emulation"
+],
+"query": "Bit-stream Emulation",
+"hits": []
+},
+"OSPFIGP": {
+"queries": [
+"OSPFIGP"
+],
+"query": "OSPFIGP",
+"hits": []
+},
+"FC": {
+"queries": [
+"Fibre Channel",
+"FC",
+"Channel",
+"Fibre"
+],
+"query": "Fibre Channel",
+"hits": []
+},
+"EIGRP": {
+"queries": [
+"EIGRP"
+],
+"query": "EIGRP",
+"hits": [
+{
+"rfc_number": 7868,
+"title": "Cisco's Enhanced Interior Gateway Routing Protocol (EIGRP)",
+"name": "rfc7868"
+}
+]
+},
+"MPLS-IN-IP": {
+"queries": [
+"MPLS in IP",
+"MPLS-IN-IP",
+"MPLS in",
+"MPLS"
+],
+"query": "MPLS in IP",
+"hits": [
+{
+"rfc_number": 4023,
+"title": "Encapsulating MPLS in IP or Generic Routing Encapsulation (GRE)",
+"name": "rfc4023"
+}
+]
+},
+"HIP": {
+"queries": [
+"Host Identity Protocol",
+"HIP",
+"Host Identity",
+"Identity",
+"Protocol",
+"Host"
+],
+"query": "Host Identity Protocol",
+"hits": [
+{
+"rfc_number": 5201,
+"title": "Host Identity Protocol",
+"name": "rfc5201"
+}
+]
+},
+"HOPOPT": {
+"queries": [
+"IPv6 Hop-by-Hop Option",
+"HOPOPT",
+"IPv6 Hop-by-Hop",
+"Hop-by-Hop",
+"Option"
+],
+"query": "IPv6 Hop-by-Hop Option",
+"hits": [
+{
+"rfc_number": 1091,
+"title": "Telnet terminal-type option",
+"name": "rfc1091"
+}
+]
+},
+"ENCAP": {
+"queries": [
+"Encapsulation Header",
+"ENCAP",
+"Encapsulation",
+"Header"
+],
+"query": "Encapsulation Header",
+"hits": []
+},
+"MOBILITY-HEADER": {
+"queries": [
+"Mobility Header",
+"MOBILITY-HEADER",
+"Mobility",
+"Header"
+],
+"query": "Mobility Header",
+"hits": [
+{
+"rfc_number": 3775,
+"title": "Mobility Support in IPv6",
+"name": "rfc3775"
+},
+{
+"rfc_number": 3344,
+"title": "IP Mobility Support for IPv4",
+"name": "rfc3344"
+},
+{
+"rfc_number": 3220,
+"title": "IP Mobility Support for IPv4",
+"name": "rfc3220"
+},
+{
+"rfc_number": 2002,
+"title": "IP Mobility Support",
+"name": "rfc2002"
+}
+]
+},
+"DCCP": {
+"queries": [
+"Datagram Congestion Control Protocol",
+"DCCP",
+"Datagram Congestion Control",
+"Datagram Congestion",
+"Congestion",
+"Datagram",
+"Protocol",
+"Control"
+],
+"query": "Datagram Congestion Control Protocol",
+"hits": [
+{
+"rfc_number": 4342,
+"title": "Profile for Datagram Congestion Control Protocol (DCCP) Congestion Control ID 3: TCP-Friendly Rate Control (TFRC)",
+"name": "rfc4342"
+},
+{
+"rfc_number": 4340,
+"title": "Datagram Congestion Control Protocol (DCCP)",
+"name": "rfc4340"
+}
+]
+},
+"NSH": {
+"queries": [
+"Network Service Header",
+"NSH",
+"Network Service",
+"Network",
+"Service",
+"Header"
+],
+"query": "Network Service Header",
+"hits": []
+},
+"RSVP-E2E-IGNORE": {
+"queries": [
+"RSVP E2E IGNORE",
+"RSVP-E2E-IGNORE",
+"RSVP E2E",
+"IGNORE",
+"RSVP"
+],
+"query": "RSVP E2E IGNORE",
+"hits": [
+{
+"rfc_number": 2210,
+"title": "The Use of RSVP with IETF Integrated Services",
+"name": "rfc2210"
+}
+]
+},
+"IPV6-OPTS": {
+"queries": [
+"Destination Options for IPv6",
+"IPV6-OPTS",
+"Destination Options for",
+"Destination Options",
+"Destination",
+"Options"
+],
+"query": "Destination Options for IPv6",
+"hits": [
+{
+"rfc_number": 8250,
+"title": "IPv6 Performance and Diagnostic Metrics (PDM) Destination Option",
+"name": "rfc8250"
+},
+{
+"rfc_number": 7272,
+"title": "Inter-Destination Media Synchronization (IDMS) Using the RTP Control Protocol (RTCP)",
+"name": "rfc7272"
+},
+{
+"rfc_number": 2132,
+"title": "DHCP Options and BOOTP Vendor Extensions",
+"name": "rfc2132"
+}
+]
+},
+"PIM": {
+"queries": [
+"Protocol Independent Multicast",
+"PIM",
+"Protocol Independent",
+"Independent",
+"Multicast",
+"Protocol"
+],
+"query": "Protocol Independent Multicast",
+"hits": [
+{
+"rfc_number": 2117,
+"title": "Protocol Independent Multicast-Sparse Mode (PIM-SM): Protocol Specification",
+"name": "rfc2117"
+}
+]
+},
+"IPV6-ICMP": {
+"queries": [
+"ICMP for IPv6",
+"IPV6-ICMP",
+"ICMP for",
+"ICMP"
+],
+"query": "ICMP for IPv6",
+"hits": [
+{
+"rfc_number": 4443,
+"title": "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification",
+"name": "rfc4443"
+},
+{
+"rfc_number": 2463,
+"title": "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification",
+"name": "rfc2463"
+},
+{
+"rfc_number": 1885,
+"title": "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6)",
+"name": "rfc1885"
+}
+]
+},
+"ROHC": {
+"queries": [
+"Robust Header Compression",
+"ROHC",
+"Robust Header",
+"Compression",
+"Header",
+"Robust"
+],
+"query": "Robust Header Compression",
+"hits": [
+{
+"rfc_number": 3095,
+"title": "RObust Header Compression (ROHC): Framework and four profiles: RTP, UDP, ESP, and uncompressed",
+"name": "rfc3095"
+}
+]
+},
+"MIN-IPV4": {
+"queries": [
+"Minimal IPv4 Encapsulation",
+"MIN-IPV4",
+"Minimal IPv4",
+"Encapsulation",
+"Minimal"
+],
+"query": "Minimal IPv4 Encapsulation",
+"hits": [
+{
+"rfc_number": 2004,
+"title": "Minimal Encapsulation within IP",
+"name": "rfc2004"
+}
+]
+},
+"ST": {
+"queries": [
+"Stream",
+"ST"
+],
+"query": "Stream",
+"hits": [
+{
+"rfc_number": 1819,
+"title": "Internet Stream Protocol Version 2 (ST2) Protocol Specification - Version ST2+",
+"name": "rfc1819"
+},
+{
+"rfc_number": 1190,
+"title": "Experimental Internet Stream Protocol: Version 2 (ST-II)",
+"name": "rfc1190"
+}
+]
+},
+"UDPLITE": {
+"queries": [
+"UDPLite"
+],
+"query": "UDPLite",
+"hits": []
+},
+"ISO-TP4": {
+"queries": [
+"ISO Transport Protocol Class 4",
+"ISO-TP4",
+"ISO Transport Protocol",
+"ISO Transport",
+"Transport",
+"Protocol",
+"Class"
+],
+"query": "ISO Transport Protocol Class 4",
+"hits": [
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+},
+{
+"rfc_number": 1250,
+"title": "IAB Official Protocol Standards",
+"name": "rfc1250"
+}
+]
+},
+"NETBLT": {
+"queries": [
+"Bulk Data Transfer Protocol",
+"NETBLT",
+"Bulk Data Transfer",
+"Bulk Data",
+"Protocol",
+"Transfer",
+"Bulk",
+"Data"
+],
+"query": "Bulk Data Transfer Protocol",
+"hits": [
+{
+"rfc_number": 1986,
+"title": "Experiments with a Simple File Transfer Protocol for Radio Links using Enhanced Trivial File Transfer Protocol (ETFTP)",
+"name": "rfc1986"
+},
+{
+"rfc_number": 1945,
+"title": "Hypertext Transfer Protocol -- HTTP/1.0",
+"name": "rfc1945"
+},
+{
+"rfc_number": 1030,
+"title": "On testing the NETBLT Protocol over divers networks",
+"name": "rfc1030"
+},
+{
+"rfc_number": 998,
+"title": "NETBLT: A bulk data transfer protocol",
+"name": "rfc998"
+}
+]
+},
+"TCP": {
+"queries": [
+"Transmission Control",
+"TCP",
+"Transmission",
+"Control"
+],
+"query": "Transmission Control",
+"hits": [
+{
+"rfc_number": 9740,
+"title": "New IPFIX Information Elements for TCP Options and IPv6 Extension Headers",
+"name": "rfc9740"
+}
+]
+},
+"IPV6-NONXT": {
+"queries": [
+"No Next Header for IPv6",
+"IPV6-NONXT",
+"No Next Header",
+"No Next",
+"Header",
+"Next"
+],
+"query": "No Next Header for IPv6",
+"hits": [
+{
+"rfc_number": 1505,
+"title": "Encoding Header Field for Internet Messages",
+"name": "rfc1505"
+}
+]
+},
+"UDP": {
+"queries": [
+"User Datagram",
+"UDP",
+"Datagram",
+"User"
+],
+"query": "User Datagram",
+"hits": [
+{
+"rfc_number": 9946,
+"title": "The UDP Speed Test Protocol (UDPSTP) for One-Way IP Capacity Metric Measurement",
+"name": "rfc9946"
+},
+{
+"rfc_number": 3095,
+"title": "RObust Header Compression (ROHC): Framework and four profiles: RTP, UDP, ESP, and uncompressed",
+"name": "rfc3095"
+},
+{
+"rfc_number": 2508,
+"title": "Compressing IP/UDP/RTP Headers for Low-Speed Serial Links",
+"name": "rfc2508"
+},
+{
+"rfc_number": 1002,
+"title": "Protocol standard for a NetBIOS service on a TCP/UDP transport: Detailed specifications",
+"name": "rfc1002"
+}
+]
+},
+"SHIM6": {
+"queries": [
+"Shim6 Protocol",
+"SHIM6",
+"Protocol",
+"Shim"
+],
+"query": "Shim6 Protocol",
+"hits": [
+{
+"rfc_number": 5533,
+"title": "Shim6: Level 3 Multihoming Shim Protocol for IPv6",
+"name": "rfc5533"
+}
+]
+},
+"RSVP": {
+"queries": [
+"Reservation Protocol",
+"RSVP",
+"Reservation",
+"Protocol"
+],
+"query": "Reservation Protocol",
+"hits": [
+{
+"rfc_number": 2205,
+"title": "Resource ReSerVation Protocol (RSVP) -- Version 1 Functional Specification",
+"name": "rfc2205"
+}
+]
+},
+"NVP-II": {
+"queries": [
+"Network Voice Protocol",
+"NVP-II",
+"Network Voice",
+"Protocol",
+"Network",
+"Voice"
+],
+"query": "Network Voice Protocol",
+"hits": [
+{
+"rfc_number": 9546,
+"title": "Operations, Administration, and Maintenance (OAM) for Deterministic Networking (DetNet) with the MPLS Data Plane",
+"name": "rfc9546"
+},
+{
+"rfc_number": 9508,
+"title": "Information-Centric Networking (ICN) Ping Protocol Specification",
+"name": "rfc9508"
+},
+{
+"rfc_number": 9507,
+"title": "Information-Centric Networking (ICN) Traceroute Protocol Specification",
+"name": "rfc9507"
+},
+{
+"rfc_number": 9438,
+"title": "CUBIC for Fast and Long-Distance Networks",
+"name": "rfc9438"
+},
+{
+"rfc_number": 741,
+"title": "Specifications for the Network Voice Protocol (NVP)",
+"name": "rfc741"
+}
+]
+},
+"NARP": {
+"queries": [
+"NBMA Address Resolution Protocol",
+"NARP",
+"NBMA Address Resolution",
+"NBMA Address",
+"Resolution",
+"Protocol",
+"Address",
+"NBMA"
+],
+"query": "NBMA Address Resolution Protocol",
+"hits": [
+{
+"rfc_number": 1735,
+"title": "NBMA Address Resolution Protocol (NARP)",
+"name": "rfc1735"
+}
+]
+},
+"IRTP": {
+"queries": [
+"Internet Reliable Transaction",
+"IRTP",
+"Internet Reliable",
+"Transaction",
+"Internet",
+"Reliable"
+],
+"query": "Internet Reliable Transaction",
+"hits": [
+{
+"rfc_number": 2371,
+"title": "Transaction Internet Protocol Version 3.0",
+"name": "rfc2371"
+},
+{
+"rfc_number": 1644,
+"title": "T/TCP -- TCP Extensions for Transactions Functional Specification",
+"name": "rfc1644"
+},
+{
+"rfc_number": 1379,
+"title": "Extending TCP for Transactions -- Concepts",
+"name": "rfc1379"
+},
+{
+"rfc_number": 1045,
+"title": "VMTP: Versatile Message Transaction Protocol: Protocol specification",
+"name": "rfc1045"
+},
+{
+"rfc_number": 938,
+"title": "Internet Reliable Transaction Protocol functional and interface specification",
+"name": "rfc938"
+}
+]
+},
+"IPCOMP": {
+"queries": [
+"IP Payload Compression Protocol",
+"IPCOMP",
+"IP Payload Compression",
+"IP Payload",
+"Compression",
+"Protocol",
+"Payload"
+],
+"query": "IP Payload Compression Protocol",
+"hits": [
+{
+"rfc_number": 3173,
+"title": "IP Payload Compression Protocol (IPComp)",
+"name": "rfc3173"
+}
+]
+},
+"VRRP": {
+"queries": [
+"Virtual Router Redundancy Protocol",
+"VRRP",
+"Virtual Router Redundancy",
+"Virtual Router",
+"Redundancy",
+"Protocol",
+"Virtual",
+"Router"
+],
+"query": "Virtual Router Redundancy Protocol",
+"hits": [
+{
+"rfc_number": 9568,
+"title": "Virtual Router Redundancy Protocol (VRRP) Version 3 for IPv4 and IPv6",
+"name": "rfc9568"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+}
+]
+},
+"WESP": {
+"queries": [
+"Wrapped Encapsulating Security Payload",
+"WESP",
+"Wrapped Encapsulating Security",
+"Wrapped Encapsulating",
+"Encapsulating",
+"Security",
+"Payload",
+"Wrapped"
+],
+"query": "Wrapped Encapsulating Security Payload",
+"hits": [
+{
+"rfc_number": 5840,
+"title": "Wrapped Encapsulating Security Payload (ESP) for Traffic Visibility",
+"name": "rfc5840"
+}
+]
+},
+"RDP": {
+"queries": [
+"Reliable Data Protocol",
+"RDP",
+"Reliable Data",
+"Protocol",
+"Reliable",
+"Data"
+],
+"query": "Reliable Data Protocol",
+"hits": [
+{
+"rfc_number": 9697,
+"title": "Detecting RPKI Repository Delta Protocol (RRDP) Session Desynchronization",
+"name": "rfc9697"
+}
+]
+},
+"SECURE-VMTP": {
+"queries": [
+"SECURE-VMTP"
+],
+"query": "SECURE-VMTP",
+"hits": []
+},
+"IPPC": {
+"queries": [
+"Internet Pluribus Packet Core",
+"IPPC",
+"Internet Pluribus Packet",
+"Internet Pluribus",
+"Internet",
+"Pluribus",
+"Packet",
+"Core"
+],
+"query": "Internet Pluribus Packet Core",
+"hits": [
+{
+"rfc_number": 1066,
+"title": "Management Information Base for network management of TCP/IP-based internets",
+"name": "rfc1066"
+}
+]
+},
+"IPTM": {
+"queries": [
+"Internet Protocol Traffic Manager",
+"IPTM",
+"Internet Protocol Traffic",
+"Internet Protocol",
+"Internet",
+"Protocol",
+"Manager",
+"Traffic"
+],
+"query": "Internet Protocol Traffic Manager",
+"hits": []
+},
+"NSFNET-IGP": {
+"queries": [
+"NSFNET-IGP"
+],
+"query": "NSFNET-IGP",
+"hits": []
+},
+"IL": {
+"queries": [
+"IL Transport Protocol",
+"IL",
+"IL Transport",
+"Transport",
+"Protocol"
+],
+"query": "IL Transport Protocol",
+"hits": [
+{
+"rfc_number": 821,
+"title": "Simple Mail Transfer Protocol",
+"name": "rfc821"
+}
+]
+},
+"IPCV": {
+"queries": [
+"Internet Packet Core Utility",
+"IPCV",
+"Internet Packet Core",
+"Internet Packet",
+"Internet",
+"Utility",
+"Packet",
+"Core"
+],
+"query": "Internet Packet Core Utility",
+"hits": [
+{
+"rfc_number": 1066,
+"title": "Management Information Base for network management of TCP/IP-based internets",
+"name": "rfc1066"
+}
+]
+},
+"SRP": {
+"queries": [
+"SpectraLink Radio Protocol",
+"SRP",
+"SpectraLink Radio",
+"SpectraLink",
+"Protocol",
+"Radio"
+],
+"query": "SpectraLink Radio Protocol",
+"hits": [
+{
+"rfc_number": 4975,
+"title": "The Message Session Relay Protocol (MSRP)",
+"name": "rfc4975"
+}
+]
+},
+"QNX": {
+"queries": [
+"QNX"
+],
+"query": "QNX",
+"hits": []
+},
+"ISIS-OVER-IPV4": {
+"queries": [
+"ISIS over IPv4",
+"ISIS-OVER-IPV4",
+"ISIS over",
+"ISIS"
+],
+"query": "ISIS over IPv4",
+"hits": []
+},
+"SKIP": {
+"queries": [
+"SKIP"
+],
+"query": "SKIP",
+"hits": []
+},
+"ARGUS": {
+"queries": [
+"ARGUS"
+],
+"query": "ARGUS",
+"hits": []
+},
+"SSCOPMCE": {
+"queries": [
+"SSCOPMCE"
+],
+"query": "SSCOPMCE",
+"hits": []
+},
+"IDPR": {
+"queries": [
+"Inter-Domain Policy Routing Protocol",
+"IDPR",
+"Inter-Domain Policy Routing",
+"Inter-Domain Policy",
+"Inter-Domain",
+"Protocol",
+"Routing",
+"Policy"
+],
+"query": "Inter-Domain Policy Routing Protocol",
+"hits": [
+{
+"rfc_number": 4632,
+"title": "Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan",
+"name": "rfc4632"
+},
+{
+"rfc_number": 1519,
+"title": "Classless Inter-Domain Routing (CIDR): an Address Assignment and Aggregation Strategy",
+"name": "rfc1519"
+},
+{
+"rfc_number": 1479,
+"title": "Inter-Domain Policy Routing Protocol Specification: Version 1",
+"name": "rfc1479"
+},
+{
+"rfc_number": 1478,
+"title": "An Architecture for Inter-Domain Policy Routing",
+"name": "rfc1478"
+}
+]
+},
+"DDX": {
+"queries": [
+"D-II Data Exchange (DDX)",
+"DDX",
+"D-II Data Exchange",
+"D-II Data",
+"Exchange",
+"D-II",
+"Data"
+],
+"query": "D-II Data Exchange (DDX)",
+"hits": []
+},
+"MFE-NSP": {
+"queries": [
+"MFE Network Services Protocol",
+"MFE-NSP",
+"MFE Network Services",
+"MFE Network",
+"Protocol",
+"Services",
+"Network"
+],
+"query": "MFE Network Services Protocol",
+"hits": [
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+},
+{
+"rfc_number": 1250,
+"title": "IAB Official Protocol Standards",
+"name": "rfc1250"
+}
+]
+},
+"CFTP": {
+"queries": [
+"CFTP"
+],
+"query": "CFTP",
+"hits": []
+},
+"PUP": {
+"queries": [
+"PUP"
+],
+"query": "PUP",
+"hits": []
+},
+"ISO-IP": {
+"queries": [
+"ISO Internet Protocol",
+"ISO-IP",
+"ISO Internet",
+"Internet",
+"Protocol"
+],
+"query": "ISO Internet Protocol",
+"hits": [
+{
+"rfc_number": 1436,
+"title": "The Internet Gopher Protocol (a distributed document search and retrieval protocol)",
+"name": "rfc1436"
+},
+{
+"rfc_number": 1070,
+"title": "Use of the Internet as a subnetwork for experimentation with the OSI network layer",
+"name": "rfc1070"
+},
+{
+"rfc_number": 1066,
+"title": "Management Information Base for network management of TCP/IP-based internets",
+"name": "rfc1066"
+}
+]
+},
+"LEAF-1": {
+"queries": [
+"Leaf-1",
+"Leaf"
+],
+"query": "Leaf-1",
+"hits": []
+},
+"3PC": {
+"queries": [
+"Third Party Connect Protocol",
+"3PC",
+"Third Party Connect",
+"Third Party",
+"Protocol",
+"Connect",
+"Party",
+"Third"
+],
+"query": "Third Party Connect Protocol",
+"hits": [
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+}
+]
+},
+"IDPR-CMTP": {
+"queries": [
+"IDPR Control Message Transport Proto",
+"IDPR-CMTP",
+"IDPR Control Message",
+"IDPR Control",
+"Transport",
+"Control",
+"Message",
+"Proto"
+],
+"query": "IDPR Control Message Transport Proto",
+"hits": [
+{
+"rfc_number": 9548,
+"title": "Generating Transport Key Containers (PFX) Using the GOST Algorithms",
+"name": "rfc9548"
+},
+{
+"rfc_number": 7919,
+"title": "Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)",
+"name": "rfc7919"
+},
+{
+"rfc_number": 6698,
+"title": "The DNS-Based Authentication of Named Entities (DANE) Transport Layer Security (TLS) Protocol: TLSA",
+"name": "rfc6698"
+},
+{
+"rfc_number": 1301,
+"title": "Multicast Transport Protocol",
+"name": "rfc1301"
+},
+{
+"rfc_number": 1008,
+"title": "Implementation guide for the ISO Transport Protocol",
+"name": "rfc1008"
+},
+{
+"rfc_number": 1002,
+"title": "Protocol standard for a NetBIOS service on a TCP/UDP transport: Detailed specifications",
+"name": "rfc1002"
+}
+]
+},
+"MERIT-INP": {
+"queries": [
+"MERIT Internodal Protocol",
+"MERIT-INP",
+"MERIT Internodal",
+"Internodal",
+"Protocol",
+"MERIT"
+],
+"query": "MERIT Internodal Protocol",
+"hits": [
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 9508,
+"title": "Information-Centric Networking (ICN) Ping Protocol Specification",
+"name": "rfc9508"
+},
+{
+"rfc_number": 9507,
+"title": "Information-Centric Networking (ICN) Traceroute Protocol Specification",
+"name": "rfc9507"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+},
+{
+"rfc_number": 8864,
+"title": "Negotiation Data Channels Using the Session Description Protocol (SDP)",
+"name": "rfc8864"
+},
+{
+"rfc_number": 2795,
+"title": "The Infinite Monkey Protocol Suite (IMPS)",
+"name": "rfc2795"
+},
+{
+"rfc_number": 1250,
+"title": "IAB Official Protocol Standards",
+"name": "rfc1250"
+}
+]
+},
+"A-N": {
+"queries": [
+"Active Networks",
+"A-N",
+"Networks",
+"Active"
+],
+"query": "Active Networks",
+"hits": []
+},
+"BNA": {
+"queries": [
+"BNA"
+],
+"query": "BNA",
+"hits": []
+},
+"CRTP": {
+"queries": [
+"Combat Radio Transport Protocol",
+"CRTP",
+"Combat Radio Transport",
+"Combat Radio",
+"Transport",
+"Protocol",
+"Combat",
+"Radio"
+],
+"query": "Combat Radio Transport Protocol",
+"hits": []
+},
+"CPHB": {
+"queries": [
+"Computer Protocol Heart Beat",
+"CPHB",
+"Computer Protocol Heart",
+"Computer Protocol",
+"Computer",
+"Protocol",
+"Heart",
+"Beat"
+],
+"query": "Computer Protocol Heart Beat",
+"hits": []
+},
+"IPLT": {
+"queries": [
+"IPLT"
+],
+"query": "IPLT",
+"hits": []
+},
+"CRUDP": {
+"queries": [
+"Combat Radio User Datagram",
+"CRUDP",
+"Combat Radio User",
+"Combat Radio",
+"Datagram",
+"Combat",
+"Radio",
+"User"
+],
+"query": "Combat Radio User Datagram",
+"hits": [
+{
+"rfc_number": 6282,
+"title": "Compression Format for IPv6 Datagrams over IEEE 802.15.4-Based Networks",
+"name": "rfc6282"
+}
+]
+},
+"SCPS": {
+"queries": [
+"SCPS"
+],
+"query": "SCPS",
+"hits": []
+},
+"CHAOS": {
+"queries": [
+"CHAOS"
+],
+"query": "CHAOS",
+"hits": []
+},
+"PIPE": {
+"queries": [
+"Private IP Encapsulation within IP",
+"PIPE",
+"Private IP Encapsulation",
+"Private IP",
+"Encapsulation",
+"Private",
+"within"
+],
+"query": "Private IP Encapsulation within IP",
+"hits": []
+},
+"SCTP": {
+"queries": [
+"Stream Control Transmission Protocol",
+"SCTP",
+"Stream Control Transmission",
+"Stream Control",
+"Transmission",
+"Protocol",
+"Control",
+"Stream"
+],
+"query": "Stream Control Transmission Protocol",
+"hits": [
+{
+"rfc_number": 2960,
+"title": "Stream Control Transmission Protocol",
+"name": "rfc2960"
+}
+]
+},
+"CBT": {
+"queries": [
+"CBT"
+],
+"query": "CBT",
+"hits": [
+{
+"rfc_number": 2189,
+"title": "Core Based Trees (CBT version 2) Multicast Routing -- Protocol Specification --",
+"name": "rfc2189"
+}
+]
+},
+"LEAF-2": {
+"queries": [
+"Leaf-2",
+"Leaf"
+],
+"query": "Leaf-2",
+"hits": []
+},
+"DDP": {
+"queries": [
+"Datagram Delivery Protocol",
+"DDP",
+"Datagram Delivery",
+"Datagram",
+"Delivery",
+"Protocol"
+],
+"query": "Datagram Delivery Protocol",
+"hits": [
+{
+"rfc_number": 5042,
+"title": "Direct Data Placement Protocol (DDP) / Remote Direct Memory Access Protocol (RDMAP) Security",
+"name": "rfc5042"
+},
+{
+"rfc_number": 4296,
+"title": "The Architecture of Direct Data Placement (DDP) and Remote Direct Memory Access (RDMA) on Internet Protocols",
+"name": "rfc4296"
+},
+{
+"rfc_number": 1171,
+"title": "Point-to-Point Protocol for the transmission of multi-protocol datagrams over Point-to-Point links",
+"name": "rfc1171"
+},
+{
+"rfc_number": 1134,
+"title": "Point-to-Point Protocol: A proposal for multi-protocol transmission of datagrams over Point-to-Point links",
+"name": "rfc1134"
+}
+]
+},
+"MUX": {
+"queries": [
+"Multiplexing",
+"MUX"
+],
+"query": "Multiplexing",
+"hits": [
+{
+"rfc_number": 6766,
+"title": "xDSL Multi-Pair Bonding Using Time-Division Inverse Multiplexing (G.Bond/TDIM) MIB",
+"name": "rfc6766"
+},
+{
+"rfc_number": 5761,
+"title": "Multiplexing RTP Data and Control Packets on a Single Port",
+"name": "rfc5761"
+},
+{
+"rfc_number": 5604,
+"title": "Managed Objects for Time Division Multiplexing (TDM) over Packet Switched Networks (PSNs)",
+"name": "rfc5604"
+},
+{
+"rfc_number": 5087,
+"title": "Time Division Multiplexing over IP (TDMoIP)",
+"name": "rfc5087"
+},
+{
+"rfc_number": 4553,
+"title": "Structure-Agnostic Time Division Multiplexing (TDM) over Packet (SAToP)",
+"name": "rfc4553"
+},
+{
+"rfc_number": 1692,
+"title": "Transport Multiplexing Protocol (TMux)",
+"name": "rfc1692"
+}
+]
+},
+"IATP": {
+"queries": [
+"Interactive Agent Transfer Protocol",
+"IATP",
+"Interactive Agent Transfer",
+"Interactive Agent",
+"Interactive",
+"Protocol",
+"Transfer",
+"Agent"
+],
+"query": "Interactive Agent Transfer Protocol",
+"hits": []
+},
+"TLSP": {
+"queries": [
+"Transport Layer Security Protocol using Kryptonet key management",
+"TLSP",
+"Transport Layer Security",
+"Transport Layer",
+"management",
+"Kryptonet",
+"Transport",
+"Protocol"
+],
+"query": "Transport Layer Security Protocol using Kryptonet key management",
+"hits": [
+{
+"rfc_number": 7919,
+"title": "Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)",
+"name": "rfc7919"
+}
+]
+},
+"SPS": {
+"queries": [
+"Secure Packet Shield",
+"SPS",
+"Secure Packet",
+"Packet",
+"Secure",
+"Shield"
+],
+"query": "Secure Packet Shield",
+"hits": []
+},
+"IPIP": {
+"queries": [
+"IP-within-IP Encapsulation Protocol",
+"IPIP",
+"IP-within-IP Encapsulation",
+"Encapsulation",
+"IP-within-IP",
+"Protocol"
+],
+"query": "IP-within-IP Encapsulation Protocol",
+"hits": [
+{
+"rfc_number": 1740,
+"title": "MIME Encapsulation of Macintosh Files - MacMIME",
+"name": "rfc1740"
+}
+]
+},
+"LARP": {
+"queries": [
+"Locus Address Resolution Protocol",
+"LARP",
+"Locus Address Resolution",
+"Locus Address",
+"Resolution",
+"Protocol",
+"Address",
+"Locus"
+],
+"query": "Locus Address Resolution Protocol",
+"hits": [
+{
+"rfc_number": 1250,
+"title": "IAB Official Protocol Standards",
+"name": "rfc1250"
+}
+]
+},
+"TCF": {
+"queries": [
+"TCF"
+],
+"query": "TCF",
+"hits": []
+},
+"PGM": {
+"queries": [
+"PGM Reliable Transport Protocol",
+"PGM",
+"PGM Reliable Transport",
+"PGM Reliable",
+"Transport",
+"Protocol",
+"Reliable"
+],
+"query": "PGM Reliable Transport Protocol",
+"hits": [
+{
+"rfc_number": 3208,
+"title": "PGM Reliable Transport Protocol Specification",
+"name": "rfc3208"
+}
+]
+},
+"BR-SAT-MON": {
+"queries": [
+"Backroom SATNET Monitoring",
+"BR-SAT-MON",
+"Backroom SATNET",
+"Monitoring",
+"Backroom",
+"SATNET"
+],
+"query": "Backroom SATNET Monitoring",
+"hits": [
+{
+"rfc_number": 1470,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1470"
+},
+{
+"rfc_number": 1271,
+"title": "Remote Network Monitoring Management Information Base",
+"name": "rfc1271"
+},
+{
+"rfc_number": 1147,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1147"
+}
+]
+},
+"SAT-MON": {
+"queries": [
+"SATNET Monitoring",
+"SAT-MON",
+"Monitoring",
+"SATNET"
+],
+"query": "SATNET Monitoring",
+"hits": [
+{
+"rfc_number": 1470,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1470"
+},
+{
+"rfc_number": 1271,
+"title": "Remote Network Monitoring Management Information Base",
+"name": "rfc1271"
+},
+{
+"rfc_number": 1147,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1147"
+}
+]
+},
+"BBN-RCC-MON": {
+"queries": [
+"BBN RCC Monitoring",
+"BBN-RCC-MON",
+"BBN RCC",
+"Monitoring"
+],
+"query": "BBN RCC Monitoring",
+"hits": [
+{
+"rfc_number": 1567,
+"title": "X.500 Directory Monitoring MIB",
+"name": "rfc1567"
+},
+{
+"rfc_number": 1566,
+"title": "Mail Monitoring MIB",
+"name": "rfc1566"
+},
+{
+"rfc_number": 1565,
+"title": "Network Services Monitoring MIB",
+"name": "rfc1565"
+},
+{
+"rfc_number": 1513,
+"title": "Token Ring Extensions to the Remote Network Monitoring MIB",
+"name": "rfc1513"
+},
+{
+"rfc_number": 1470,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1470"
+},
+{
+"rfc_number": 1333,
+"title": "PPP Link Quality Monitoring",
+"name": "rfc1333"
+},
+{
+"rfc_number": 1271,
+"title": "Remote Network Monitoring Management Information Base",
+"name": "rfc1271"
+},
+{
+"rfc_number": 1147,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1147"
+},
+{
+"rfc_number": 1076,
+"title": "HEMS monitoring and control language",
+"name": "rfc1076"
+},
+{
+"rfc_number": 1028,
+"title": "Simple Gateway Monitoring Protocol",
+"name": "rfc1028"
+}
+]
+},
+"MICP": {
+"queries": [
+"Mobile Internetworking Control Pro.",
+"MICP",
+"Mobile Internetworking Control",
+"Mobile Internetworking",
+"Internetworking",
+"Control",
+"Mobile"
+],
+"query": "Mobile Internetworking Control Pro.",
+"hits": [
+{
+"rfc_number": 3002,
+"title": "Overview of 2000 IAB Wireless Internetworking Workshop",
+"name": "rfc3002"
+},
+{
+"rfc_number": 1463,
+"title": "FYI on Introducing the Internet-- A Short Bibliography of Introductory Internetworking Readings",
+"name": "rfc1463"
+}
+]
+},
+"COMPAQ-PEER": {
+"queries": [
+"Compaq Peer Protocol",
+"COMPAQ-PEER",
+"Compaq Peer",
+"Protocol",
+"Compaq",
+"Peer"
+],
+"query": "Compaq Peer Protocol",
+"hits": [
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+}
+]
+},
+"IDRP": {
+"queries": [
+"Inter-Domain Routing Protocol",
+"IDRP",
+"Inter-Domain Routing",
+"Inter-Domain",
+"Protocol",
+"Routing"
+],
+"query": "Inter-Domain Routing Protocol",
+"hits": [
+{
+"rfc_number": 5773,
+"title": "Analysis of Inter-Domain Routing Requirements and History",
+"name": "rfc5773"
+}
+]
+},
+"GMTP": {
+"queries": [
+"GMTP"
+],
+"query": "GMTP",
+"hits": []
+},
+"PNNI": {
+"queries": [
+"PNNI over IP",
+"PNNI",
+"PNNI over"
+],
+"query": "PNNI over IP",
+"hits": []
+},
+"SAT-EXPAK": {
+"queries": [
+"SATNET and Backroom EXPAK",
+"SAT-EXPAK",
+"SATNET and Backroom",
+"SATNET and",
+"Backroom",
+"SATNET",
+"EXPAK"
+],
+"query": "SATNET and Backroom EXPAK",
+"hits": []
+},
+"IGP": {
+"queries": [
+"any private interior gateway (used by Cisco for their IGRP)",
+"IGP",
+"any private interior",
+"any private",
+"interior",
+"gateway",
+"private",
+"Cisco"
+],
+"query": "any private interior gateway (used by Cisco for their IGRP)",
+"hits": []
+},
+"EMCON": {
+"queries": [
+"EMCON"
+],
+"query": "EMCON",
+"hits": []
+},
+"IPV6-FRAG": {
+"queries": [
+"Fragment Header for IPv6",
+"IPV6-FRAG",
+"Fragment Header for",
+"Fragment Header",
+"Fragment",
+"Header"
+],
+"query": "Fragment Header for IPv6",
+"hits": [
+{
+"rfc_number": 3786,
+"title": "Extending the Number of Intermediate System to Intermediate System (IS-IS) Link State PDU (LSP) Fragments Beyond the 256 Limit",
+"name": "rfc3786"
+},
+{
+"rfc_number": 3128,
+"title": "Protection Against a Variant of the Tiny Fragment Attack (RFC 1858)",
+"name": "rfc3128"
+}
+]
+},
+"SM": {
+"queries": [
+"Simple Multicast Protocol",
+"SM",
+"Simple Multicast",
+"Multicast",
+"Protocol",
+"Simple"
+],
+"query": "Simple Multicast Protocol",
+"hits": [
+{
+"rfc_number": 9260,
+"title": "Stream Control Transmission Protocol",
+"name": "rfc9260"
+}
+]
+},
+"I-NLSP": {
+"queries": [
+"Integrated Net Layer Security TUBA",
+"I-NLSP",
+"Integrated Net Layer",
+"Integrated Net",
+"Integrated",
+"Security",
+"Layer",
+"TUBA"
+],
+"query": "Integrated Net Layer Security TUBA",
+"hits": [
+{
+"rfc_number": 7919,
+"title": "Negotiated Finite Field Diffie-Hellman Ephemeral Parameters for Transport Layer Security (TLS)",
+"name": "rfc7919"
+},
+{
+"rfc_number": 6698,
+"title": "The DNS-Based Authentication of Named Entities (DANE) Transport Layer Security (TLS) Protocol: TLSA",
+"name": "rfc6698"
+},
+{
+"rfc_number": 1244,
+"title": "Site Security Handbook",
+"name": "rfc1244"
+}
+]
+},
+"CPNX": {
+"queries": [
+"Computer Protocol Network Executive",
+"CPNX",
+"Computer Protocol Network",
+"Computer Protocol",
+"Executive",
+"Computer",
+"Protocol",
+"Network"
+],
+"query": "Computer Protocol Network Executive",
+"hits": []
+},
+"HOMA": {
+"queries": [
+"Homa"
+],
+"query": "Homa",
+"hits": []
+},
+"DGP": {
+"queries": [
+"Dissimilar Gateway Protocol",
+"DGP",
+"Dissimilar Gateway",
+"Dissimilar",
+"Protocol",
+"Gateway"
+],
+"query": "Dissimilar Gateway Protocol",
+"hits": [
+{
+"rfc_number": 1254,
+"title": "Gateway Congestion Control Survey",
+"name": "rfc1254"
+},
+{
+"rfc_number": 1009,
+"title": "Requirements for Internet gateways",
+"name": "rfc1009"
+}
+]
+},
+"AX-25": {
+"queries": [
+"AX.25 Frames",
+"AX-25",
+"Frames"
+],
+"query": "AX.25 Frames",
+"hits": [
+{
+"rfc_number": 1226,
+"title": "Internet protocol encapsulation of AX.25 frames",
+"name": "rfc1226"
+}
+]
+},
+"FIRE": {
+"queries": [
+"FIRE"
+],
+"query": "FIRE",
+"hits": []
+},
+"PRM": {
+"queries": [
+"Packet Radio Measurement",
+"PRM",
+"Packet Radio",
+"Measurement",
+"Packet",
+"Radio"
+],
+"query": "Packet Radio Measurement",
+"hits": [
+{
+"rfc_number": 8913,
+"title": "Two-Way Active Measurement Protocol (TWAMP) YANG Data Model",
+"name": "rfc8913"
+},
+{
+"rfc_number": 2722,
+"title": "Traffic Flow Measurement: Architecture",
+"name": "rfc2722"
+},
+{
+"rfc_number": 2720,
+"title": "Traffic Flow Measurement: Meter MIB",
+"name": "rfc2720"
+},
+{
+"rfc_number": 2123,
+"title": "Traffic Flow Measurement: Experiences with NeTraMet",
+"name": "rfc2123"
+},
+{
+"rfc_number": 2064,
+"title": "Traffic Flow Measurement:  Meter MIB",
+"name": "rfc2064"
+},
+{
+"rfc_number": 2063,
+"title": "Traffic Flow Measurement:  Architecture",
+"name": "rfc2063"
+},
+{
+"rfc_number": 1273,
+"title": "Measurement Study of Changes in Service-Level Reachability in the Global TCP/IP Internet: Goals, Experimental Design, Implementation, and Policy Considerations",
+"name": "rfc1273"
+}
+]
+},
+"DCN-MEAS": {
+"queries": [
+"DCN Measurement Subsystems",
+"DCN-MEAS",
+"DCN Measurement",
+"Measurement",
+"Subsystems"
+],
+"query": "DCN Measurement Subsystems",
+"hits": [
+{
+"rfc_number": 2722,
+"title": "Traffic Flow Measurement: Architecture",
+"name": "rfc2722"
+},
+{
+"rfc_number": 2720,
+"title": "Traffic Flow Measurement: Meter MIB",
+"name": "rfc2720"
+},
+{
+"rfc_number": 2123,
+"title": "Traffic Flow Measurement: Experiences with NeTraMet",
+"name": "rfc2123"
+},
+{
+"rfc_number": 2064,
+"title": "Traffic Flow Measurement:  Meter MIB",
+"name": "rfc2064"
+},
+{
+"rfc_number": 2063,
+"title": "Traffic Flow Measurement:  Architecture",
+"name": "rfc2063"
+}
+]
+},
+"IPX-IN-IP": {
+"queries": [
+"IPX in IP",
+"IPX-IN-IP",
+"IPX in"
+],
+"query": "IPX in IP",
+"hits": []
+},
+"IFMP": {
+"queries": [
+"Ipsilon Flow Management Protocol",
+"IFMP",
+"Ipsilon Flow Management",
+"Ipsilon Flow",
+"Management",
+"Protocol",
+"Ipsilon",
+"Flow"
+],
+"query": "Ipsilon Flow Management Protocol",
+"hits": [
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+},
+{
+"rfc_number": 8532,
+"title": "Generic YANG Data Model for the Management of Operations, Administration, and Maintenance (OAM) Protocols That Use Connectionless Communications",
+"name": "rfc8532"
+},
+{
+"rfc_number": 1953,
+"title": "Ipsilon Flow Management Protocol Specification for IPv4 Version 1.0",
+"name": "rfc1953"
+}
+]
+},
+"MTP": {
+"queries": [
+"Multicast Transport Protocol",
+"MTP",
+"Multicast Transport",
+"Multicast",
+"Transport",
+"Protocol"
+],
+"query": "Multicast Transport Protocol",
+"hits": []
+},
+"KRYPTOLAN": {
+"queries": [
+"KRYPTOLAN"
+],
+"query": "KRYPTOLAN",
+"hits": []
+},
+"ARIS": {
+"queries": [
+"ARIS"
+],
+"query": "ARIS",
+"hits": []
+},
+"IPV6-ROUTE": {
+"queries": [
+"Routing Header for IPv6",
+"IPV6-ROUTE",
+"Routing Header for",
+"Routing Header",
+"Routing",
+"Header"
+],
+"query": "Routing Header for IPv6",
+"hits": []
+},
+"RVD": {
+"queries": [
+"MIT Remote Virtual Disk Protocol",
+"RVD",
+"MIT Remote Virtual",
+"MIT Remote",
+"Protocol",
+"Virtual",
+"Remote",
+"Disk"
+],
+"query": "MIT Remote Virtual Disk Protocol",
+"hits": [
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 9508,
+"title": "Information-Centric Networking (ICN) Ping Protocol Specification",
+"name": "rfc9508"
+},
+{
+"rfc_number": 9507,
+"title": "Information-Centric Networking (ICN) Traceroute Protocol Specification",
+"name": "rfc9507"
+},
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+}
+]
+},
+"SMP": {
+"queries": [
+"Simple Message Protocol",
+"SMP",
+"Simple Message",
+"Protocol",
+"Message",
+"Simple"
+],
+"query": "Simple Message Protocol",
+"hits": [
+{
+"rfc_number": 3295,
+"title": "Definitions of Managed Objects for the General Switch Management Protocol (GSMP)",
+"name": "rfc3295"
+},
+{
+"rfc_number": 3292,
+"title": "General Switch Management Protocol (GSMP) V3",
+"name": "rfc3292"
+}
+]
+},
+"SPRITE-RPC": {
+"queries": [
+"Sprite RPC Protocol",
+"SPRITE-RPC",
+"Sprite RPC",
+"Protocol",
+"Sprite"
+],
+"query": "Sprite RPC Protocol",
+"hits": [
+{
+"rfc_number": 9537,
+"title": "Redacted Fields in the Registration Data Access Protocol (RDAP) Response",
+"name": "rfc9537"
+},
+{
+"rfc_number": 9523,
+"title": "A Secure Selection and Filtering Mechanism for the Network Time Protocol with Khronos",
+"name": "rfc9523"
+},
+{
+"rfc_number": 8864,
+"title": "Negotiation Data Channels Using the Session Description Protocol (SDP)",
+"name": "rfc8864"
+},
+{
+"rfc_number": 1250,
+"title": "IAB Official Protocol Standards",
+"name": "rfc1250"
+}
+]
+},
+"SUN-ND": {
+"queries": [
+"SUN ND PROTOCOL-Temporary",
+"SUN-ND",
+"SUN ND",
+"PROTOCOL-Temporary"
+],
+"query": "SUN ND PROTOCOL-Temporary",
+"hits": []
+},
+"PTP": {
+"queries": [
+"Performance Transparency Protocol",
+"PTP",
+"Performance Transparency",
+"Transparency",
+"Performance",
+"Protocol"
+],
+"query": "Performance Transparency Protocol",
+"hits": [
+{
+"rfc_number": 8173,
+"title": "Precision Time Protocol Version 2 (PTPv2) Management Information Base",
+"name": "rfc8173"
+}
+]
+},
+"UTI": {
+"queries": [
+"UTI"
+],
+"query": "UTI",
+"hits": [
+{
+"rfc_number": 9616,
+"title": "Delay-Based Metric Extension for the Babel Routing Protocol",
+"name": "rfc9616"
+}
+]
+},
+"VMTP": {
+"queries": [
+"VMTP"
+],
+"query": "VMTP",
+"hits": [
+{
+"rfc_number": 1045,
+"title": "VMTP: Versatile Message Transaction Protocol: Protocol specification",
+"name": "rfc1045"
+}
+]
+},
+"SCC-SP": {
+"queries": [
+"Semaphore Communications Sec. Pro.",
+"SCC-SP",
+"Semaphore Communications Sec.",
+"Semaphore Communications",
+"Communications",
+"Semaphore"
+],
+"query": "Semaphore Communications Sec. Pro.",
+"hits": [
+{
+"rfc_number": 3557,
+"title": "RTP Payload Format for European Telecommunications Standards Institute (ETSI) European Standard ES 201 108 Distributed Speech Recognition Encoding",
+"name": "rfc3557"
+}
+]
+},
+"VINES": {
+"queries": [
+"VINES"
+],
+"query": "VINES",
+"hits": []
+},
+"SDRP": {
+"queries": [
+"Source Demand Routing Protocol",
+"SDRP",
+"Source Demand Routing",
+"Source Demand",
+"Protocol",
+"Routing",
+"Demand",
+"Source"
+],
+"query": "Source Demand Routing Protocol",
+"hits": [
+{
+"rfc_number": 1940,
+"title": "Source Demand Routing: Packet Format and Forwarding Specification (Version 1)",
+"name": "rfc1940"
+}
+]
+},
+"TRUNK-2": {
+"queries": [
+"Trunk-2",
+"Trunk"
+],
+"query": "Trunk-2",
+"hits": [
+{
+"rfc_number": 4904,
+"title": "Representing Trunk Groups in tel/sip Uniform Resource Identifiers (URIs)",
+"name": "rfc4904"
+}
+]
+},
+"PVP": {
+"queries": [
+"Packet Video Protocol",
+"PVP",
+"Packet Video",
+"Protocol",
+"Packet",
+"Video"
+],
+"query": "Packet Video Protocol",
+"hits": [
+{
+"rfc_number": 4110,
+"title": "A Framework for Layer 3 Provider-Provisioned Virtual Private Networks (PPVPNs)",
+"name": "rfc4110"
+}
+]
+},
+"XTP": {
+"queries": [
+"XTP"
+],
+"query": "XTP",
+"hits": []
+},
+"STP": {
+"queries": [
+"Schedule Transfer Protocol",
+"STP",
+"Schedule Transfer",
+"Protocol",
+"Schedule",
+"Transfer"
+],
+"query": "Schedule Transfer Protocol",
+"hits": []
+},
+"WB-EXPAK": {
+"queries": [
+"WIDEBAND EXPAK",
+"WB-EXPAK",
+"WIDEBAND",
+"EXPAK"
+],
+"query": "WIDEBAND EXPAK",
+"hits": [
+{
+"rfc_number": 5188,
+"title": "RTP Payload Format for the Enhanced Variable Rate Wideband Codec (EVRC-WB) and the Media Subtype Updates for EVRC-B Codec",
+"name": "rfc5188"
+},
+{
+"rfc_number": 4867,
+"title": "RTP Payload Format and File Storage Format for the Adaptive Multi-Rate (AMR) and Adaptive Multi-Rate Wideband (AMR-WB) Audio Codecs",
+"name": "rfc4867"
+},
+{
+"rfc_number": 4424,
+"title": "Real-Time Transport Protocol (RTP) Payload Format for the Variable-Rate Multimode Wideband (VMR-WB) Extension Audio Codec",
+"name": "rfc4424"
+},
+{
+"rfc_number": 4352,
+"title": "RTP Payload Format for the Extended Adaptive Multi-Rate Wideband (AMR-WB+) Audio Codec",
+"name": "rfc4352"
+},
+{
+"rfc_number": 4348,
+"title": "Real-Time Transport Protocol (RTP) Payload Format for the Variable-Rate Multimode Wideband (VMR-WB) Audio Codec",
+"name": "rfc4348"
+}
+]
+},
+"WB-MON": {
+"queries": [
+"WIDEBAND Monitoring",
+"WB-MON",
+"Monitoring",
+"WIDEBAND"
+],
+"query": "WIDEBAND Monitoring",
+"hits": [
+{
+"rfc_number": 1470,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1470"
+},
+{
+"rfc_number": 1271,
+"title": "Remote Network Monitoring Management Information Base",
+"name": "rfc1271"
+},
+{
+"rfc_number": 1147,
+"title": "FYI on a Network Management Tool Catalog: Tools for Monitoring and Debugging TCP/IP Internets and Interconnected Devices",
+"name": "rfc1147"
+}
+]
+},
+"VISA": {
+"queries": [
+"VISA Protocol",
+"VISA",
+"Protocol"
+],
+"query": "VISA Protocol",
+"hits": [
+{
+"rfc_number": 9481,
+"title": "Certificate Management Protocol (CMP) Algorithms",
+"name": "rfc9481"
+},
+{
+"rfc_number": 1436,
+"title": "The Internet Gopher Protocol (a distributed document search and retrieval protocol)",
+"name": "rfc1436"
+}
+]
+},
+"SNP": {
+"queries": [
+"Sitara Networks Protocol",
+"SNP",
+"Sitara Networks",
+"Networks",
+"Protocol",
+"Sitara"
+],
+"query": "Sitara Networks Protocol",
+"hits": []
+},
+"TRUNK-1": {
+"queries": [
+"Trunk-1",
+"Trunk"
+],
+"query": "Trunk-1",
+"hits": []
+},
+"SWIPE": {
+"queries": [
+"IP with Encryption",
+"SWIPE",
+"IP with",
+"Encryption",
+"with"
+],
+"query": "IP with Encryption",
+"hits": [
+{
+"rfc_number": 1211,
+"title": "Problems with the maintenance of large mailing lists",
+"name": "rfc1211"
+}
+]
+},
+"XNET": {
+"queries": [
+"Cross Net Debugger",
+"XNET",
+"Cross Net",
+"Debugger",
+"Cross"
+],
+"query": "Cross Net Debugger",
+"hits": [
+{
+"rfc_number": 6806,
+"title": "Kerberos Principal Name Canonicalization and Cross-Realm Referrals",
+"name": "rfc6806"
+},
+{
+"rfc_number": 5330,
+"title": "A Link-Type sub-TLV to Convey the Number of Traffic Engineering Label Switched Paths Signalled with Zero Reserved Bandwidth across a Link",
+"name": "rfc5330"
+},
+{
+"rfc_number": 5265,
+"title": "Mobile IPv4 Traversal across IPsec-Based VPN Gateways",
+"name": "rfc5265"
+},
+{
+"rfc_number": 5128,
+"title": "State of Peer-to-Peer (P2P) Communication across Network Address Translators (NATs)",
+"name": "rfc5128"
+},
+{
+"rfc_number": 3707,
+"title": "Cross Registry Internet Service Protocol (CRISP) Requirements",
+"name": "rfc3707"
+},
+{
+"rfc_number": 909,
+"title": "Loader Debugger Protocol",
+"name": "rfc909"
+},
+{
+"rfc_number": 685,
+"title": "Response time in cross network debugging",
+"name": "rfc685"
+}
+]
+},
+"TP": {
+"queries": [
+"TP++ Transport Protocol",
+"TP",
+"TP++ Transport",
+"Transport",
+"Protocol"
+],
+"query": "TP++ Transport Protocol",
+"hits": [
+{
+"rfc_number": 9651,
+"title": "Structured Field Values for HTTP",
+"name": "rfc9651"
+},
+{
+"rfc_number": 8460,
+"title": "SMTP TLS Reporting",
+"name": "rfc8460"
+},
+{
+"rfc_number": 8088,
+"title": "How to Write an RTP Payload Format",
+"name": "rfc8088"
+}
+]
+},
+"WSN": {
+"queries": [
+"Wang Span Network",
+"WSN",
+"Wang Span",
+"Network",
+"Span",
+"Wang"
+],
+"query": "Wang Span Network",
+"hits": [
+{
+"rfc_number": 9438,
+"title": "CUBIC for Fast and Long-Distance Networks",
+"name": "rfc9438"
+},
+{
+"rfc_number": 376,
+"title": "Network Host Status",
+"name": "rfc376"
+}
+]
+},
+"XNS-IDP": {
+"queries": [
+"XEROX NS IDP",
+"XNS-IDP",
+"XEROX NS",
+"XEROX"
+],
+"query": "XEROX NS IDP",
+"hits": []
+}
+}
