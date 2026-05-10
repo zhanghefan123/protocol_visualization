@@ -1,4 +1,4 @@
-"""Fetch RFC plaintext and verify the IANA well-known *port* appears (e.g. ``port 80``)."""
+"""Fetch RFC plaintext from RFC Editor with a unified on-disk cache (see ``project_paths``)."""
 
 from __future__ import annotations
 
@@ -8,35 +8,53 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from tqdm import tqdm
+
 from .http_client import fetch_url
+
+# Repo root on sys.path (run scripts from project root).
+from project_paths import LEGACY_RFC_FETCH_TXT_DIR, RFC_BODY_CACHE_DIR
 
 RFC_EDITOR_TXT_URL = "https://www.rfc-editor.org/rfc/rfc{n}.txt"
 
 
-def _port_reference_regex(port: int) -> re.Pattern[str]:
-    """Match common RFC/I-D phrasing and service-list style ``80/tcp``."""
+def _normalize_txt_cache_primary(cache_dir: Path | None) -> Path:
+    return Path(cache_dir) if cache_dir is not None else RFC_BODY_CACHE_DIR
 
-    n = str(int(port))
-    # Word boundary around the port digit string avoids matching 80 inside 8080.
-    return re.compile(
-        rf"(?is)"
-        rf"(?:\bport\b\s*(?:number|no\.?)?\s*[:#]?\s*{re.escape(n)}\b)"
-        rf"|(?:\b{n}\s*/\s*(?:tcp|udp|sctp|dccp)\b)"
-        rf"|(?:(?:tcp|udp|sctp|dccp)\s*/\s*{re.escape(n)}\b)"
-        rf"|(?:\bwell[- ]known\s+port\s+{re.escape(n)}\b)"
-    )
+
+def _read_txt_with_legacy_fallback(primary: Path, rfc_number: int) -> str | None:
+    legacy = LEGACY_RFC_FETCH_TXT_DIR
+    name = f"rfc{rfc_number}.txt"
+    primary_path = primary / name
+    if primary_path.is_file():
+        return primary_path.read_text(encoding="utf-8", errors="replace")
+    if primary.resolve() == legacy.resolve():
+        return None
+    legacy_path = legacy / name
+    if legacy_path.is_file():
+        txt = legacy_path.read_text(encoding="utf-8", errors="replace")
+        primary.mkdir(parents=True, exist_ok=True)
+        try:
+            primary_path.write_text(txt, encoding="utf-8")
+        except OSError:
+            pass
+        return txt
+    return None
 
 
 def fetch_rfc_plaintext_cached(
     rfc_number: int,
     *,
-    cache_dir: Path,
+    cache_dir: Path | None = None,
     timeout: float,
 ) -> str | None:
-    cache_dir.mkdir(parents=True, exist_ok=True)
-    path = cache_dir / f"rfc{rfc_number}.txt"
-    if path.is_file():
-        return path.read_text(encoding="utf-8", errors="replace")
+    primary = _normalize_txt_cache_primary(cache_dir)
+    got = _read_txt_with_legacy_fallback(primary, rfc_number)
+    if got is not None:
+        return got
+
+    primary.mkdir(parents=True, exist_ok=True)
+    path = primary / f"rfc{rfc_number}.txt"
     url = RFC_EDITOR_TXT_URL.format(n=rfc_number)
     try:
         raw = fetch_url(url, timeout=timeout)
@@ -54,7 +72,7 @@ def fetch_rfc_plaintext_cached(
 def prefetch_rfc_plaintexts(
     rfc_numbers: set[int],
     *,
-    cache_dir: Path,
+    cache_dir: Path | None = None,
     timeout: float,
     workers: int,
 ) -> None:
@@ -63,25 +81,37 @@ def prefetch_rfc_plaintexts(
         return
     w = max(1, min(int(workers), len(nums)))
     total = len(nums)
+    cd = _normalize_txt_cache_primary(cache_dir)
 
     def one(n: int) -> None:
-        fetch_rfc_plaintext_cached(n, cache_dir=cache_dir, timeout=timeout)
+        fetch_rfc_plaintext_cached(n, cache_dir=cd, timeout=timeout)
 
-    print(
-        f"Prefetching {total} RFC .txt file(s) for port-in-body checks "
-        f"(workers={w}; timeout up to {timeout:g}s each)…",
-        file=sys.stderr,
-        flush=True,
-    )
-    done = 0
     with concurrent.futures.ThreadPoolExecutor(max_workers=w) as ex:
         futs = [ex.submit(one, n) for n in nums]
-        for fut in concurrent.futures.as_completed(futs):
+        for fut in tqdm(
+            concurrent.futures.as_completed(futs),
+            total=total,
+            desc="RFC .txt prefetch",
+            unit="file",
+            file=sys.stderr,
+            leave=False,
+            dynamic_ncols=True,
+            mininterval=0.25,
+        ):
             fut.result()
-            done += 1
-            if done <= 10 or done % 25 == 0 or done == total:
-                print(f"RFC plaintext prefetch {done}/{total}", file=sys.stderr, flush=True)
-    print("RFC plaintext prefetch done.", file=sys.stderr, flush=True)
+
+
+def _port_reference_regex(port: int) -> re.Pattern[str]:
+    """Match common RFC/I-D phrasing and service-list style ``80/tcp``."""
+
+    n = str(int(port))
+    return re.compile(
+        rf"(?is)"
+        rf"(?:\bport\b\s*(?:number|no\.?)?\s*[:#]?\s*{re.escape(n)}\b)"
+        rf"|(?:\b{n}\s*/\s*(?:tcp|udp|sctp|dccp)\b)"
+        rf"|(?:(?:tcp|udp|sctp|dccp)\s*/\s*{re.escape(n)}\b)"
+        rf"|(?:\bwell[- ]known\s+port\s+{re.escape(n)}\b)"
+    )
 
 
 def port_mentioned_in_rfc_plaintext(port: int, body: str) -> bool:

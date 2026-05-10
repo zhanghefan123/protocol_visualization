@@ -9,7 +9,8 @@ Official CSV:
 
 Decodes Keyword -> protocol id (uppercase, hyphenated) and parses RFC numbers from Reference.
 Rows **without** RFC in Reference still become seeds: Datatracker title search may supply RFC numbers.
-Only protocols that end up with **at least one** RFC (IANA ∪ Datatracker) appear in the YAML.
+Seeds that already have **at least one** RFC parsed from IANA **Reference** skip Datatracker (no extra lookups).
+Only protocols that end up with **at least one** RFC (IANA Reference, or Datatracker when Reference has none) appear in the YAML.
 
 The registry lists **protocol / next-header numbers** (what runs *above* or *inside* IP in many
 rows). Decimals **4** and **41** are *IPv4 / IPv6 encapsulation* (RFC2003 / RFC2473 style), not
@@ -17,12 +18,9 @@ the core Internet Protocol specs, so those CSV rows are **skipped** and **IPV4**
 seeds are **injected** (RFC791 / **RFC8200 only** for IPv6) before folding IPv6 extension headers in.
 
 After building from CSV, optionally merges **Datatracker** ``title__icontains`` hits into each seed’s
-``rfcs`` (same multi-phrase strategy as application-layer ``rfc_fetch``; cache under
-``output/network_graph/network_datatracker_cache.json``). IANA ``Reference`` RFCs are always kept;
-Datatracker numbers are **unioned**.
-
-After that, merges ``network_seed_overrides.yaml`` (same directory by default).
-Overrides may use ``replace_rfcs`` or ``extra_rfcs`` (union).
+``rfcs`` for seeds whose IANA ``Reference`` listed **no** RFC numbers (same multi-phrase strategy as
+application-layer ``rfc_fetch``; cache under ``output/network_graph/network_datatracker_cache.json``).
+IANA ``Reference`` RFCs are authoritative when present; Datatracker is **not** used for those seeds.
 
 IPv6 **extension-header next-header** values (HOPOPT, …) are **folded into** ``IPV6`` (RFC union)
 after the core IPv6 seed exists.
@@ -55,18 +53,15 @@ from project_paths import (
     OUTPUT_RFC_FETCH_TXT_CACHE,
 )
 
-from network_datatracker_merge import merge_datatracker_rfcs_into_by_proto
+from datatracker_merge import merge_datatracker_rfcs_into_by_proto
 
 from core_internet_protocol_seeds import RFC_IPV4_CORE, inject_core_internet_protocol_seeds
 
 RFC_RE = re.compile(r"\bRFC\s*(\d+)\b", re.I)
 
-_SCRIPT_DIR = Path(__file__).resolve().parent
-
 DEFAULT_CSV_URL = "https://www.iana.org/assignments/protocol-numbers/protocol-numbers-1.csv"
 DEFAULT_DATA_CSV = NETWORK_PROTOCOL_NUMBERS_CSV
 DEFAULT_OUTPUT = NETWORK_PROTOCOL_SEEDS_YAML
-DEFAULT_OVERRIDES_YAML = _SCRIPT_DIR / "network_seed_overrides.yaml"
 
 
 def keyword_to_seed_id(keyword_raw: str) -> str:
@@ -222,65 +217,6 @@ def apply_iana_protocol_number_semantics(protocols: Dict[str, Dict[str, Any]]) -
             )
 
 
-def merge_network_seed_overrides(protocols: Dict[str, Dict[str, Any]], path: Path) -> int:
-    """
-    Shallow-merge per-protocol metadata from YAML into ``protocols`` (mutates in place).
-
-    Optional ``replace_rfcs`` replaces the CSV-derived list. ``extra_rfcs`` is then
-    unioned into ``rfcs``. Returns the number of override keys applied (for logging).
-    """
-
-    if not path.is_file():
-        return 0
-    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    ovr = raw.get("protocols") or {}
-    if not isinstance(ovr, dict):
-        return 0
-
-    applied = 0
-    for name, meta in ovr.items():
-        if not isinstance(meta, dict):
-            print(f"Override entry ignored (not a mapping): {name!r}", file=sys.stderr)
-            continue
-        if name not in protocols:
-            print(f"Override skipped (not in IANA CSV output): {name}", file=sys.stderr)
-            continue
-
-        entry = protocols[name]
-        repl = meta.get("replace_rfcs")
-        if repl is not None:
-            if not isinstance(repl, list):
-                print(f"Override {name}: replace_rfcs must be a list, ignored", file=sys.stderr)
-            else:
-                entry["rfcs"] = sorted(int(x) for x in repl)
-                applied += 1
-
-        base_rfcs = {int(x) for x in (entry.get("rfcs") or [])}
-        extra = meta.get("extra_rfcs") or []
-        if extra:
-            for x in extra:
-                base_rfcs.add(int(x))
-            entry["rfcs"] = sorted(base_rfcs)
-            applied += 1
-
-        for k, v in meta.items():
-            if k in ("extra_rfcs", "replace_rfcs"):
-                continue
-            if k == "rfcs":
-                print(
-                    f"Override {name}: key 'rfcs' ignored (IANA CSV is authoritative); "
-                    f"use 'extra_rfcs' to add RFC numbers.",
-                    file=sys.stderr,
-                )
-                continue
-            if v is None or v == "":
-                continue
-            entry[k] = v
-            applied += 1
-
-    return applied
-
-
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         description="Generate protocol_seeds_network.yaml from IANA protocol-numbers CSV"
@@ -317,17 +253,6 @@ def main(argv: list[str] | None = None) -> int:
         help="Set expand.enabled to false in the generated YAML",
     )
     ap.add_argument(
-        "--overrides",
-        type=Path,
-        default=DEFAULT_OVERRIDES_YAML,
-        help=f"YAML file merged after CSV parse (default: {DEFAULT_OVERRIDES_YAML.name}; empty if missing)",
-    )
-    ap.add_argument(
-        "--no-overrides",
-        action="store_true",
-        help="Do not merge --overrides even if the file exists",
-    )
-    ap.add_argument(
         "--iana-ipv6-extension-rows",
         action="store_true",
         help="Keep separate YAML seeds for IPv6 extension-header Next Header values (HOPOPT, IPV6-ICMP, …); default folds them into IPV6",
@@ -361,7 +286,8 @@ def main(argv: list[str] | None = None) -> int:
         default=True,
         help=(
             "After Datatracker hits, drop RFCs whose plaintext does not mention this row’s IANA "
-            "Decimal (protocol number). Uses rfc-editor .txt cache (default: shared output/rfc_fetch/rfc_txt). "
+            "Decimal (protocol number). Uses unified RFC plaintext cache (default: output/cache/rfc_body; "
+            "legacy output/rfc_fetch/rfc_txt is still read when migrating). "
             "Use --no-verify-network-datatracker-decimal-in-rfc-body to skip."
         ),
     )
@@ -412,9 +338,15 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
     n_iana_only_empty = sum(1 for s in by_proto.values() if not s)
+    n_iana_has_rfc = sum(1 for s in by_proto.values() if s)
     if n_iana_only_empty:
         print(
-            f"{n_iana_only_empty} seed id(s) have no RFC in IANA Reference; will try Datatracker only.",
+            f"{n_iana_only_empty} seed id(s) have no RFC in IANA Reference; Datatracker may add RFC numbers.",
+            file=sys.stderr,
+        )
+    if n_iana_has_rfc:
+        print(
+            f"{n_iana_has_rfc} seed id(s) have RFC(s) from IANA Reference; Datatracker lookup skipped for them.",
             file=sys.stderr,
         )
 
@@ -448,10 +380,6 @@ def main(argv: list[str] | None = None) -> int:
     if not bool(args.iana_ipv6_extension_rows):
         fold_ipv6_extension_header_seeds(protocols)
     apply_iana_protocol_number_semantics(protocols)
-    if not bool(args.no_overrides):
-        n_ov = merge_network_seed_overrides(protocols, Path(args.overrides))
-        if n_ov:
-            print(f"Merged {n_ov} override field(s) from {args.overrides}", file=sys.stderr)
 
     data = {
         "protocols": protocols,

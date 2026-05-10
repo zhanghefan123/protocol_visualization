@@ -132,7 +132,7 @@ def build_timeline_html(
         <span class="kbd">Enter</span>
       </div>
     </div>
-    <div class="hint">横轴 earliest RFC 索引日期 · 纵轴分层（示意）。<b>缩放/拖动</b>可用；<b>连线默认隐藏</b>，悬停节点时显示与该节点相关的边并淡化其余节点。{hint_edges}{cap_html}{hint_rfc}</div>
+    <div class="hint">横轴 earliest RFC 索引日期 · 纵轴分层（示意）。图为<b>有向依赖</b>（箭头由「源→目标」一端指向另一端，与 CSV 列 <code>src</code>/<code>dst</code> 一致）。<b>缩放/拖动</b>可用；<b>连线默认隐藏</b>，悬停节点时显示与该节点相关的边并淡化其余节点；悬停边上的箭头指向依赖方向。{hint_edges}{cap_html}{hint_rfc}</div>
     <div id="main"></div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
@@ -159,12 +159,17 @@ def build_timeline_html(
         formatter: function (param) {{
           const d = param.data || {{}};
           if (param.seriesType === 'scatter') {{
-            return '<div style=\"max-width:360px;line-height:1.45\">' +
+            const dsc = (d.description && String(d.description).trim())
+              ? '<br/><span style=\"color:#64748b\">description</span><br/>'
+                + escapeHtml(String(d.description).trim()).replace(/\\n/g, '<br/>')
+              : '';
+            return '<div style=\"max-width:420px;line-height:1.45\">' +
               '<b>' + escapeHtml(String(d.name || d.id || '-')) + '</b><br/>' +
               '<span style=\"color:#64748b\">birth</span> ' + escapeHtml(String(d.birth_date || '-')) + '<br/>' +
               '<span style=\"color:#64748b\">layer</span> ' + escapeHtml(String(d.layer || '-')) + '<br/>' +
               '<span style=\"color:#64748b\">defining RFCs</span> ' + escapeHtml(String(d.defining_rfcs || '-')) + '<br/>' +
               '<span style=\"color:#64748b\">degree</span> ' + (d.degree ?? 0) +
+              dsc +
               '</div>';
           }}
           if (param.seriesType === 'lines') {{
@@ -215,14 +220,18 @@ def build_timeline_html(
           name: 'edges',
           type: 'lines',
           coordinateSystem: 'cartesian2d',
-          z: 1,
+          /** Draw above scatter so arrowheads stay visible; silent keeps hit-testing on nodes. */
+          z: 12,
+          zlevel: 1,
+          silent: true,
           polyline: false,
+          /** Directed edges: arrow only at coords[1] (dst); keep start clean for readability. */
           symbol: ['none', 'arrow'],
-          symbolSize: 7,
-          lineStyle: {{ width: 1.35, opacity: 0.62 }},
+          symbolSize: [0, 18],
+          lineStyle: {{ width: 1.85, opacity: 0.7, cap: 'round', join: 'round' }},
           emphasis: {{
             disabled: false,
-            lineStyle: {{ width: 3, opacity: 0.9 }}
+            lineStyle: {{ width: 4, opacity: 0.95 }}
           }},
           data: []
         }},
@@ -231,6 +240,7 @@ def build_timeline_html(
           type: 'scatter',
           coordinateSystem: 'cartesian2d',
           z: 3,
+          zlevel: 0,
           symbolSize: function (val, params) {{
             return params.data?.symbolSize || 12;
           }},

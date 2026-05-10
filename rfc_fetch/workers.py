@@ -46,7 +46,7 @@ def lookup_datatracker_with_query_candidates(
     """Try several ``title__icontains`` phrases; merge RFC hits (dedupe by number), newest first overall.
 
     Phrases are queried with a **small inner thread pool** (default 3) so one Datatracker key does not
-    spend 8× HTTP latency serially (which looks like a hang on ``progress 1/N``). Outer pool workers
+    spend 8× HTTP latency serially (which looks like a hang on an early tqdm step). Outer pool workers
     still cap total parallelism; set env ``RFC_FETCH_PHRASE_WORKERS=2`` to be gentler on 429.
     """
 

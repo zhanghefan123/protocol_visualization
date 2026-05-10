@@ -96,6 +96,17 @@ class BuildConfig:
     strict_rfc_port_verify: bool
 
 
+def _lookup_keys_with_iana_reference_rfcs(rows: list[dict[str, str]]) -> set[str]:
+    """Datatracker lookup keys for which at least one IANA row has RFC(s) in *Reference*."""
+
+    keys: set[str] = set()
+    for r in rows:
+        ref = (r.get("Reference") or "").strip()
+        if parse_iana_rfc_numbers(ref):
+            keys.add(row_datatracker_lookup_key(r))
+    return keys
+
+
 def load_cache(cache_path: str) -> dict[str, Any]:
     try:
         with open(cache_path, encoding="utf-8") as f:
@@ -142,12 +153,18 @@ def run_build(cfg: BuildConfig) -> int:
         for name in unique_names
     }
 
+    iana_ref_keys = _lookup_keys_with_iana_reference_rfcs(rows)
+    n_skip_iana_ref = sum(1 for n in unique_names if n in iana_ref_keys)
+
     name_hits: dict[str, list[dict[str, Any]]] = {}
     to_fetch_jobs: list[tuple[str, tuple[str, ...]]] = []
 
     for name in unique_names:
         qt = phrases_by_key[name]
         if not qt:
+            name_hits[name] = []
+            continue
+        if name in iana_ref_keys:
             name_hits[name] = []
             continue
         cached = cache.get(name)
@@ -157,11 +174,12 @@ def run_build(cfg: BuildConfig) -> int:
         to_fetch_jobs.append((name, qt))
 
     pending = len(to_fetch_jobs)
-    skipped_short = sum(1 for n in unique_names if not phrases_by_key[n])
-    reuse = len(unique_names) - pending - skipped_short
+    skipped_short = sum(1 for n in unique_names if n not in iana_ref_keys and not phrases_by_key[n])
+    reuse = len(unique_names) - n_skip_iana_ref - skipped_short - pending
     print(
         f"Datatracker: {pending} fetch(es), {reuse} reuse(s) from cache, "
         f"{skipped_short} skipped (no query phrases ≥ --min-name-len={cfg.min_name_len}); "
+        f"{n_skip_iana_ref} skipped (IANA Reference already has RFC(s)); "
         f"workers={cfg.workers}; multi-phrase title search (merged hits, max {cfg.max_datatracker_phrases} phrases/key)",
         file=sys.stderr,
         flush=True,
@@ -177,12 +195,6 @@ def run_build(cfg: BuildConfig) -> int:
         if total_http > 0:
             http_progress = DatatrackerHttpProgress(total_http)
             http_progress.start()
-        print(
-            "Datatracker: 已提交请求；下方进度条统计 **HTTP 请求** 次数（每个 title 短语 1 次；"
-            "分母为计划上限，若某键提前凑满命中数会少于分母）。",
-            file=sys.stderr,
-            flush=True,
-        )
         done_n = 0
         try:
             with concurrent.futures.ThreadPoolExecutor(max_workers=workers_n) as executor:
@@ -255,7 +267,8 @@ def run_build(cfg: BuildConfig) -> int:
     if cfg.verify_port_in_rfc_body:
         print(
             "RFC port filter: Datatracker hits are kept only if rfc-editor plaintext mentions this row’s "
-            f"port (e.g. «port 80», «80/tcp»). Default .txt cache: {OUTPUT_RFC_FETCH_TXT_CACHE} "
+            f"port (e.g. «port 80», «80/tcp»). Default RFC body cache: {OUTPUT_RFC_FETCH_TXT_CACHE} "
+            f"(legacy texts under output/rfc_fetch/rfc_txt are still reused). "
             "(override: --rfc-body-cache-dir).",
             file=sys.stderr,
             flush=True,

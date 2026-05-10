@@ -93,9 +93,10 @@ HOVER_HIGHLIGHT_JS = r"""
     const FADE_EDGE_OPACITY = 0.06;
     const FOCUS_NODE_OPACITY = 1.0;
     const FOCUS_EDGE_OPACITY = 0.92;
-    const FOCUS_EDGE_WIDTH = 3.0;
-    const BASE_EDGE_OPACITY = 0.62;
-    const BASE_EDGE_WIDTH = 1.35;
+    /** Match timeline_html emphasis line width so directed arrows stay visible. */
+    const FOCUS_EDGE_WIDTH = 4.2;
+    const BASE_EDGE_OPACITY = 0.7;
+    const BASE_EDGE_WIDTH = 1.85;
 
     function cloneLineForDraw(l, opacity, width) {
       const ls = Object.assign({}, l.lineStyle || {});

@@ -31,12 +31,14 @@ from timeline_core import (
     APP_NODES_CSV,
     DEFAULT_NETWORK_EDGES_CSV,
     DEFAULT_NETWORK_NODES_CSV,
+    DEFAULT_PROTOCOL_NUMBERS_CSV,
     IANA_PORTS_CSV,
     TIMELINE_HTML,
     VIZ_DIR,
 )
 from timeline_data import (
     collect_iana_transport_edges,
+    enrich_nodes_map_descriptions,
     merge_edge_tables,
     merge_network_nodes_into,
     parse_iso_date,
@@ -69,7 +71,12 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     ap.add_argument("--out", type=Path, default=TIMELINE_HTML)
     ap.add_argument("--edge-kinds", default="proto_ref", help="Comma-separated CSV edge kinds to keep")
     ap.add_argument("--max-nodes", type=int, default=300)
-    ap.add_argument("--node-size", type=int, default=0, help="Fixed px scatter; 0 = auto")
+    ap.add_argument(
+        "--node-size",
+        type=int,
+        default=20,
+        help="Scatter symbol size (px); default 20; use 0 for degree-scaled auto",
+    )
     ap.add_argument(
         "--foundation",
         action="store_true",
@@ -79,6 +86,12 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         "--iana-ports-csv",
         type=Path,
         default=IANA_PORTS_CSV,
+    )
+    ap.add_argument(
+        "--protocol-numbers-csv",
+        type=Path,
+        default=DEFAULT_PROTOCOL_NUMBERS_CSV,
+        help="IANA protocol-numbers CSV: Keyword/Protocol→node tooltip description (network-named nodes)",
     )
     ap.add_argument("--no-iana-transport-edges", action="store_true")
     ap.add_argument("--rfc-click", choices=["none", "first", "all"], default="first")
@@ -278,6 +291,7 @@ def build_scatter_rows(
                 "name": label,
                 "birth_date": birth_disp,
                 "defining_rfcs": (n.get("defining_rfcs") or "").strip(),
+                "description": (n.get("description") or "").strip(),
                 "layer": layer,
                 "degree": dd,
                 "symbolSize": size,
@@ -335,9 +349,11 @@ def build_line_rows(
                     "dataKind": orig_k,
                     "lineStyle": {
                         "color": tc.LAYER_LINK_EDGE_COLOR[cat],
-                        "width": 1.35,
-                        "opacity": 0.62,
+                        "width": 1.85,
+                        "opacity": 0.7,
                         "curveness": 0.0,
+                        "cap": "round",
+                        "join": "round",
                     },
                 }
             )
@@ -349,7 +365,14 @@ def build_line_rows(
                     "dst": e["dst"],
                     "coords": [a, b],
                     "kind": orig_k,
-                    "lineStyle": {"color": c, "width": 1.35, "opacity": 0.62, "curveness": 0.0},
+                    "lineStyle": {
+                        "color": c,
+                        "width": 1.85,
+                        "opacity": 0.7,
+                        "curveness": 0.0,
+                        "cap": "round",
+                        "join": "round",
+                    },
                 }
             )
 
@@ -411,6 +434,12 @@ def main(argv: Optional[List[str]] = None) -> int:
     foundation_active = bool(args.foundation)
     if foundation_active:
         tc.merge_foundation_nodes(nodes_map)
+
+    enrich_nodes_map_descriptions(
+        nodes_map,
+        ports_csv=args.iana_ports_csv,
+        protocol_csv=args.protocol_numbers_csv,
+    )
 
     stack_bands = bool(foundation_active or merged_network)
 

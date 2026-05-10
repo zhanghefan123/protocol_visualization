@@ -37,7 +37,6 @@ protocols:
   BGP:
     rfcs:
     - 9260
-    - 9687
   BOOTPS:
     rfcs:
     - 951
@@ -65,9 +64,11 @@ protocols:
     - 9915
   DISCARD:
     rfcs:
-    - 863
     - 4340
     - 9260
+  DIXIE:
+    rfcs:
+    - 1249
   DLEP:
     rfcs:
     - 8175
@@ -81,7 +82,6 @@ protocols:
     - 9250
   EPP:
     rfcs:
-    - 3734
     - 5734
   ESRO-GEN:
     rfcs:
@@ -102,8 +102,6 @@ protocols:
   FTP:
     rfcs:
     - 959
-    - 1068
-    - 1415
     - 9260
   FTP-DATA:
     rfcs:
@@ -117,22 +115,14 @@ protocols:
   GOPHER:
     rfcs:
     - 1436
-  HOSTNAME:
-    rfcs:
-    - 811
-    - 953
   HTTP:
     rfcs:
-    - 1945
-    - 2068
     - 9110
     - 9260
   HTTPS:
     rfcs:
-    - 8484
     - 9110
     - 9260
-    - 9460
   IANA-UNNAMED-TCP-0-B9AB1A9E:
     rfcs:
     - 6335
@@ -152,6 +142,10 @@ protocols:
   IANA-UNNAMED-UDP-143-3E2E5D4F:
     rfcs:
     - 9051
+  IANA-UNNAMED-UDP-35-B2C7AF37:
+    rfcs:
+    - 1759
+    - 3805
   IANA-UNNAMED-UDP-993-E79C333E:
     rfcs:
     - 9051
@@ -165,9 +159,6 @@ protocols:
     rfcs:
     - 3501
     - 9051
-  IMAP3:
-    rfcs:
-    - 1203
   IMAPS:
     rfcs:
     - 3501
@@ -178,12 +169,7 @@ protocols:
     - 8011
   IPPS:
     rfcs:
-    - 2910
-    - 7472
     - 8011
-  IPX:
-    rfcs:
-    - 1234
   IRIS-BEEP:
     rfcs:
     - 3983
@@ -199,7 +185,6 @@ protocols:
     - 2408
   ISCSI:
     rfcs:
-    - 3720
     - 7143
   ISO-TP0:
     rfcs:
@@ -212,14 +197,14 @@ protocols:
     - 1859
   KERBEROS:
     rfcs:
-    - 1510
     - 4120
   KINK:
     rfcs:
     - 4430
   LDAP:
     rfcs:
-    - 1487
+    - 1959
+    - 2255
   LMP:
     rfcs:
     - 4204
@@ -237,12 +222,14 @@ protocols:
     - 1060
     - 1340
     - 1700
+  MPP:
+    rfcs:
+    - 1204
   MSDP:
     rfcs:
     - 3618
   NAS:
     rfcs:
-    - 418
     - 4707
   NETCONF-SSH:
     rfcs:
@@ -256,7 +243,6 @@ protocols:
     - 3977
   NNTP:
     rfcs:
-    - 977
     - 3977
   NNTPS:
     rfcs:
@@ -309,6 +295,9 @@ protocols:
   QOTD:
     rfcs:
     - 865
+  RAP:
+    rfcs:
+    - 1476
   RIFT-LIES:
     rfcs:
     - 9692
@@ -336,12 +325,10 @@ protocols:
     - 1440
   SMTP:
     rfcs:
-    - 1425
-    - 1426
-    - 1427
     - 1651
     - 1652
     - 1653
+    - 3865
     - 5321
   SNMP:
     rfcs:
@@ -355,16 +342,16 @@ protocols:
   SOAP-BEEP:
     rfcs:
     - 4227
+  SQL-NET:
+    rfcs:
+    - 1340
+    - 1700
   SSH:
     rfcs:
     - 4251
-    - 4253
     - 9260
   SUBMISSION:
     rfcs:
-    - 2476
-    - 4409
-    - 4468
     - 6409
   SUBMISSIONS:
     rfcs:
@@ -375,16 +362,12 @@ protocols:
     - 1057
   SYSLOG:
     rfcs:
-    - 3164
-    - 3195
     - 5426
-    - 6587
   SYSLOG-CONN:
     rfcs:
     - 3195
   TACACS:
     rfcs:
-    - 1492
     - 8907
     - 9887
   TACACSS:
@@ -423,20 +406,14 @@ protocols:
     - 1700
   WWW:
     rfcs:
-    - 2594
-    - 6948
     - 9110
-    - 9505
   WWW-HTTP:
     rfcs:
-    - 2068
+    - 6948
+    - 9505
   XMLRPC-BEEP:
     rfcs:
     - 3529
-  Z39-50:
-    rfcs:
-    - 1340
-    - 1700
   Z39.50:
     rfcs:
     - 1729

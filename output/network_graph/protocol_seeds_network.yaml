@@ -1,14 +1,15 @@
 protocols:
   3PC:
     rfcs:
-    - 9481
-    - 9523
+    - 1147
+    - 1162
+    - 8532
+    - 9250
   AGGFRAG:
     rfcs:
     - 9347
   AH:
     rfcs:
-    - 1005
     - 4302
   AX-25:
     rfcs:
@@ -39,13 +40,15 @@ protocols:
   COMPAQ-PEER:
     rfcs:
     - 9481
+  CRTP:
+    rfcs:
+    - 6698
   CRUDP:
     rfcs:
     - 6282
   DCCP:
     rfcs:
     - 4340
-    - 4342
   DCN-MEAS:
     rfcs:
     - 2063
@@ -65,7 +68,6 @@ protocols:
     - 1254
   DSR:
     rfcs:
-    - 3927
     - 4728
   EGP:
     rfcs:
@@ -78,7 +80,6 @@ protocols:
     - 1241
   ESP:
     rfcs:
-    - 3686
     - 4303
   ETHERIP:
     rfcs:
@@ -95,31 +96,21 @@ protocols:
     - 823
   GRE:
     rfcs:
-    - 1702
     - 2784
-    - 3147
-    - 4023
-    - 5845
   HIP:
     rfcs:
-    - 5201
     - 7401
   HMP:
     rfcs:
     - 869
-    - 1028
-    - 1076
-    - 1147
-    - 1271
-    - 1470
-    - 1513
-    - 1566
-    - 1567
   I-NLSP:
     rfcs:
-    - 1244
-    - 6698
-    - 7919
+    - 2213
+    - 9135
+  IATP:
+    rfcs:
+    - 5245
+    - 6231
   ICMP:
     rfcs:
     - 792
@@ -131,51 +122,38 @@ protocols:
     - 4632
   IDPR-CMTP:
     rfcs:
-    - 1002
-    - 1008
-    - 1301
-    - 6698
-    - 7919
-    - 9548
+    - 1076
   IDRP:
     rfcs:
     - 5773
   IFMP:
     rfcs:
     - 1953
-    - 8532
     - 9481
   IGMP:
     rfcs:
     - 1112
-    - 2236
   IL:
     rfcs:
     - 821
   IPCOMP:
     rfcs:
     - 2393
-    - 3173
   IPCV:
     rfcs:
     - 1066
-  IPIP:
-    rfcs:
-    - 1740
   IPPC:
     rfcs:
     - 1066
+  IPTM:
+    rfcs:
+    - 1250
   IPV6-FRAG:
     rfcs:
-    - 3128
-    - 3786
+    - 1144
   IRTP:
     rfcs:
     - 938
-    - 1045
-    - 1379
-    - 1644
-    - 2371
   ISO-IP:
     rfcs:
     - 1066
@@ -184,19 +162,12 @@ protocols:
   ISO-TP4:
     rfcs:
     - 905
-    - 1250
-    - 9481
-    - 9523
   L2TP:
     rfcs:
     - 3931
-  LARP:
-    rfcs:
-    - 1250
   MANET:
     rfcs:
     - 5498
-    - 5614
   MERIT-INP:
     rfcs:
     - 1250
@@ -208,9 +179,10 @@ protocols:
     - 9523
   MFE-NSP:
     rfcs:
-    - 1250
-    - 9481
-    - 9523
+    - 1085
+    - 1095
+    - 1168
+    - 1189
   MICP:
     rfcs:
     - 1463
@@ -220,10 +192,6 @@ protocols:
     - 2004
   MOBILITY-HEADER:
     rfcs:
-    - 2002
-    - 3220
-    - 3344
-    - 3775
     - 6275
   MPLS-IN-IP:
     rfcs:
@@ -242,20 +210,12 @@ protocols:
   NETBLT:
     rfcs:
     - 969
-    - 998
-    - 1030
-    - 1945
-    - 1986
   NSH:
     rfcs:
     - 9491
   NVP-II:
     rfcs:
     - 741
-    - 9438
-    - 9507
-    - 9508
-    - 9546
   OSPFIGP:
     rfcs:
     - 1583
@@ -266,17 +226,12 @@ protocols:
     - 3208
   PIM:
     rfcs:
-    - 2117
     - 7761
   PRM:
     rfcs:
-    - 1273
-    - 2063
-    - 2064
-    - 2123
-    - 2720
-    - 2722
-    - 8913
+    - 1382
+    - 1552
+    - 1940
   PTP:
     rfcs:
     - 8173
@@ -286,10 +241,8 @@ protocols:
   RDP:
     rfcs:
     - 908
-    - 9697
   ROHC:
     rfcs:
-    - 3095
     - 5858
   RSVP:
     rfcs:
@@ -297,14 +250,10 @@ protocols:
     - 3209
   RSVP-E2E-IGNORE:
     rfcs:
-    - 2210
     - 3175
   RVD:
     rfcs:
-    - 9481
-    - 9507
-    - 9508
-    - 9523
+    - 2674
   SAT-MON:
     rfcs:
     - 1147
@@ -322,9 +271,6 @@ protocols:
   SHIM6:
     rfcs:
     - 5533
-  SM:
-    rfcs:
-    - 9260
   SMP:
     rfcs:
     - 3292
@@ -344,35 +290,32 @@ protocols:
     - 1819
   SWIPE:
     rfcs:
-    - 1211
+    - 1969
+    - 2144
+    - 2268
+    - 2410
+    - 2419
   TCP:
     rfcs:
     - 9293
-    - 9740
   TLSP:
     rfcs:
     - 7919
   TP:
     rfcs:
-    - 8088
-    - 8460
-    - 9651
+    - 7656
+    - 7667
+    - 7711
+    - 7714
   TRUNK-2:
     rfcs:
     - 4904
   UDP:
     rfcs:
     - 768
-    - 1002
-    - 2508
-    - 3095
-    - 9946
   UDPLITE:
     rfcs:
     - 3828
-  UTI:
-    rfcs:
-    - 9616
   VISA:
     rfcs:
     - 1436
@@ -382,7 +325,6 @@ protocols:
     - 1045
   VRRP:
     rfcs:
-    - 9481
     - 9568
   WB-EXPAK:
     rfcs:
@@ -401,12 +343,10 @@ protocols:
     - 5840
   WSN:
     rfcs:
-    - 376
     - 9438
   XNET:
     rfcs:
     - 685
-    - 909
     - 3707
     - 5128
     - 5265
@@ -419,15 +359,7 @@ protocols:
       row)
   IPV6:
     rfcs:
-    - 1091
-    - 1505
-    - 1885
-    - 2132
-    - 2463
-    - 4443
-    - 7272
     - 8200
-    - 8250
     label: IPv6 · Internet Protocol (RFC8200; IANA decimal 41 cites RFC2473 tunneling,
       not the IPv6 spec)
 expand:

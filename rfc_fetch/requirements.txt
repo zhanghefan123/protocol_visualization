@@ -1,0 +1,2 @@
+# Optional: standalone install for python -m rfc_fetch only (still needs tqdm).
+tqdm>=4.66.0

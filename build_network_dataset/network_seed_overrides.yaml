@@ -1,5 +1,0 @@
-# Optional: merged after IANA CSV parse + built-in semantics (see generate_network_seeds.py:
-# IPv6 extension-header fold, IPV4→RFC791, ETHERNET label).
-# Use for one-off keys: label, extra_rfcs, replace_rfcs (rare — prefer extending the script).
-
-protocols: {}

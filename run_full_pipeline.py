@@ -3,14 +3,14 @@
 One-shot pipeline (project root as cwd). All generated files go under ``output/`` — see ``project_paths.py``.
 
   optional: python -m rfc_fetch  →  output/rfc_fetch/
-  1. build_dataset/generate_seeds.py  →  output/app_graph/protocol_seeds.yaml
-  2. build_dataset/rfc_editor_graph.py  →  output/app_graph/nodes.csv, edges.csv
+  1. build_app_dataset/generate_app_seeds.py  →  output/app_graph/protocol_seeds.yaml
+  2. build_app_dataset/rfc_editor_graph.py  →  output/app_graph/nodes.csv, edges.csv (+ cache under output/app_graph/cache/)
   3. build_network_dataset/generate_network_seeds.py  →  output/network_graph/protocol_seeds_network.yaml
-  4. build_dataset/rfc_editor_graph.py (network seeds)  →  output/network_graph/nodes.csv, edges.csv
+  4. build_app_dataset/rfc_editor_graph.py (network seeds)  →  output/network_graph/nodes.csv, edges.csv
   5. viz/render_timeline_echarts.py  →  output/viz/timeline_graph.html
 
-Requires: pip install -r build_dataset/requirements.txt (PyYAML, requests, lxml).
-``python -m rfc_fetch`` uses only the stdlib. Missing ``output/rfc_fetch/iana_wellknown_ports_rfcs.csv``
+Requires: pip install -r build_app_dataset/requirements.txt (PyYAML, requests, lxml, tqdm).
+``python -m rfc_fetch`` also needs ``tqdm`` (or ``pip install -r rfc_fetch/requirements.txt``). Missing ``output/rfc_fetch/iana_wellknown_ports_rfcs.csv``
 triggers rfc_fetch automatically; missing ``output/cache/network/protocol-numbers-1.csv`` adds ``--fetch``
 to ``generate_network_seeds``. Use ``--fetch-iana-ports`` / ``--fetch-protocol-numbers`` only to force
 refresh when those files already exist. ``--foundation`` only changes viz output (extra anchor nodes).
@@ -92,7 +92,7 @@ def main(argv: List[str] | None = None) -> int:
     exe = sys.executable
     graph_base = [
         exe,
-        str(ROOT / "build_dataset" / "rfc_editor_graph.py"),
+        str(ROOT / "build_app_dataset" / "rfc_editor_graph.py"),
         "--workers",
         str(int(args.workers)),
         "--cache",
@@ -111,8 +111,8 @@ def main(argv: List[str] | None = None) -> int:
             _run("rfc_fetch (IANA well-known ports + Datatracker)", [exe, "-m", "rfc_fetch"])
 
         _run(
-            "generate_seeds (application protocol_seeds.yaml)",
-            [exe, str(ROOT / "build_dataset" / "generate_seeds.py")],
+            "generate_app_seeds (application protocol_seeds.yaml)",
+            [exe, str(ROOT / "build_app_dataset" / "generate_app_seeds.py")],
         )
 
         _run(

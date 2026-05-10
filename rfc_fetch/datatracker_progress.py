@@ -1,59 +1,56 @@
-"""Thread-safe stderr progress line for Datatracker HTTP requests (stdlib only)."""
+"""Thread-safe tqdm wrapper for concurrent Datatracker HTTP steps."""
 
 from __future__ import annotations
 
-import shutil
 import sys
 import threading
 from typing import TextIO
 
+try:
+    from tqdm import tqdm
+except ImportError as e:  # pragma: no cover
+    raise ImportError(
+        "Progress bars require tqdm. Install with: pip install tqdm"
+    ) from e
+
 
 class DatatrackerHttpProgress:
-    """Each ``complete_one()`` corresponds to one finished ``search_rfcs_by_title_phrase`` call."""
+    """Each ``complete_one()`` corresponds to one finished title-search HTTP step."""
 
-    def __init__(self, total: int, *, stream: TextIO | None = None, bar_width: int = 28) -> None:
+    def __init__(
+        self,
+        total: int,
+        *,
+        stream: TextIO | None = None,
+        desc: str = "Datatracker HTTP",
+    ) -> None:
         self.total = max(0, int(total))
-        self.done = 0
-        self._lock = threading.Lock()
         self._stream = stream if stream is not None else sys.stderr
-        self._bar_width = max(8, int(bar_width))
-
-    def _cols(self) -> int:
-        try:
-            return max(48, shutil.get_terminal_size().columns)
-        except OSError:
-            return 80
-
-    def _render_unlocked(self) -> None:
-        if self.total <= 0:
-            return
-        t = self.total
-        d = min(self.done, t)
-        cols = self._cols()
-        w = max(8, min(self._bar_width, cols - 42))
-        filled = int(w * d / t) if t else 0
-        filled = min(max(filled, 0), w)
-        bar = "#" * filled + "-" * (w - filled)
-        pct = 100.0 * d / t if t else 0.0
-        self._stream.write(f"\rDatatracker HTTP [{bar}] {d}/{t} ({pct:.1f}%)")
-        self._stream.flush()
+        self._desc = desc
+        self._lock = threading.Lock()
+        self._bar: tqdm | None = None
 
     def start(self) -> None:
         if self.total <= 0:
             return
-        with self._lock:
-            self.done = 0
-            self._render_unlocked()
+        self._bar = tqdm(
+            total=self.total,
+            desc=self._desc,
+            unit="req",
+            file=self._stream,
+            leave=False,
+            dynamic_ncols=True,
+            mininterval=0.2,
+            smoothing=0.2,
+        )
 
     def complete_one(self) -> None:
-        if self.total <= 0:
+        if self._bar is None:
             return
         with self._lock:
-            self.done += 1
-            self._render_unlocked()
+            self._bar.update(1)
 
     def end_line(self) -> None:
-        if self.total <= 0:
-            return
-        self._stream.write("\n")
-        self._stream.flush()
+        if self._bar is not None:
+            self._bar.close()
+            self._bar = None

@@ -11,6 +11,99 @@ import re
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
 
+# ---------------------------------------------------------------------------
+# Human-readable descriptions for tooltips (IANA ports CSV + protocol-numbers CSV)
+# ---------------------------------------------------------------------------
+
+
+def keyword_to_protocol_seed_id(keyword_raw: str) -> str:
+    """Match ``generate_network_seeds.keyword_to_seed_id`` / network graph node ``id``."""
+
+    k = (keyword_raw or "").strip().upper()
+    k = re.sub(r"\([^)]*\)", "", k).strip()
+    k = k.replace("/", "-")
+    k = re.sub(r"[^\w\-]+", "-", k.replace(" ", "-"))
+    k = re.sub(r"-+", "-", k).strip("-")
+    return k
+
+
+def _pick_longest_text(candidates: List[str]) -> str:
+    cand = [t.strip() for t in candidates if t and t.strip()]
+    if not cand:
+        return ""
+    return max(cand, key=lambda s: (len(s), s.casefold()))
+
+
+def descriptions_from_iana_ports_csv(path: Path) -> Dict[str, str]:
+    """Uppercased *Service Name* → longest *Description* among its port/transport rows."""
+
+    if not path.is_file():
+        return {}
+    bucket: Dict[str, List[str]] = {}
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            sn = (row.get("Service Name") or "").strip()
+            if not sn:
+                continue
+            bucket.setdefault(sn.upper(), []).append((row.get("Description") or "").strip())
+    return {svc: _pick_longest_text(descs) for svc, descs in bucket.items()}
+
+
+def descriptions_from_protocol_numbers_csv(path: Path) -> Dict[str, str]:
+    """Keyword-derived seed ``id`` → longest *Protocol* cell for that Keyword."""
+
+    if not path.is_file():
+        return {}
+    bucket: Dict[str, List[str]] = {}
+    with path.open(encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            kw_raw = (row.get("Keyword") or "").strip()
+            if re.fullmatch(r"(?i)reserved", kw_raw):
+                continue
+            sid = keyword_to_protocol_seed_id(kw_raw)
+            if not sid:
+                continue
+            proto = (row.get("Protocol") or "").strip()
+            if proto:
+                bucket.setdefault(sid, []).append(proto)
+    return {sid: _pick_longest_text(texts) for sid, texts in bucket.items()}
+
+
+def enrich_nodes_map_descriptions(
+    nodes_map: Dict[str, Dict[str, str]],
+    *,
+    ports_csv: Path | None = None,
+    protocol_csv: Path | None = None,
+) -> None:
+    """Fill ``description`` on node rows when missing (mutates *nodes_map*)."""
+
+    pmap = descriptions_from_iana_ports_csv(ports_csv) if ports_csv else {}
+    nmap = descriptions_from_protocol_numbers_csv(protocol_csv) if protocol_csv else {}
+    if not pmap and not nmap:
+        return
+    for nid, row in nodes_map.items():
+        if (row.get("description") or "").strip():
+            continue
+        desc = pmap.get((nid or "").strip().upper()) or nmap.get(nid, "") or ""
+        if desc:
+            row["description"] = desc
+
+
+def enrich_nodes_list_descriptions(
+    nodes: List[Dict[str, str]],
+    *,
+    ports_csv: Path | None = None,
+    protocol_csv: Path | None = None,
+) -> None:
+    """Same as ``enrich_nodes_map_descriptions`` but for list of rows with ``id``."""
+
+    m: Dict[str, Dict[str, str]] = {}
+    for row in nodes:
+        i = (row.get("id") or "").strip()
+        if i:
+            m[i] = row
+    enrich_nodes_map_descriptions(m, ports_csv=ports_csv, protocol_csv=protocol_csv)
+
 from timeline_core import IANA_TRANSPORT_TO_NODE
 
 RFC_NUM_IN_DEFINING = re.compile(r"\bRFC\s*(\d+)\b", re.I)
@@ -82,6 +175,12 @@ def merge_network_nodes_into(
         merged["birth_date"] = _earlier_birth_date_str(
             (prow.get("birth_date") or "").strip(), (srow.get("birth_date") or "").strip()
         )
+        pd = (prow.get("description") or "").strip()
+        sd = (srow.get("description") or "").strip()
+        if len(sd) > len(pd):
+            merged["description"] = sd
+        else:
+            merged["description"] = pd or sd
         plab = (prow.get("label") or "").strip()
         slab = (srow.get("label") or "").strip()
         merged["label"] = plab or slab or nid
