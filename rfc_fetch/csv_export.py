@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .iana import parse_iana_rfc_numbers, row_datatracker_lookup_key
+from .iana import csv_service_name_display, parse_iana_rfc_numbers, row_datatracker_lookup_key
 from .rfc_body_port import filter_datatracker_hits_by_port_in_rfc
 
 CSV_COLUMNS = [
@@ -63,7 +63,7 @@ def write_wellknown_ports_csv(
         writer.writeheader()
         for r in rows:
             lookup_key = row_datatracker_lookup_key(r)
-            name = (r.get("Service Name") or "").strip() or lookup_key
+            name = csv_service_name_display(r, lookup_key)
             ref = (r.get("Reference") or "").strip()
             iana_rfcs = parse_iana_rfc_numbers(ref)
             hits = list(name_hits.get(lookup_key, []))

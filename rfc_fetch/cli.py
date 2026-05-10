@@ -97,7 +97,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--max-datatracker-phrases",
         type=int,
-        default=8,
+        default=4,
         help="Max title__icontains phrases per lookup key (extra phrases = splits/tokens from Description). "
         "Use 1 for a single query: primary IANA phrase only (no phrase expansion).",
     )

@@ -122,34 +122,116 @@ visualization_new/
 
 ## 分步运行（不用一键脚本时）
 
-与 `run_full_pipeline.py` 等价的手动顺序如下（均在**仓库根目录**）：
+以下顺序与 **`run_full_pipeline.py` 在未加 `--fetch-*` / `--no-network`** 时的行为一致：**工作目录请始终在仓库根目录**（这样才能正确解析 `project_paths.py` 与相对路径）。
 
-1. **端口 + RFC 摘要表**（可选，慢）  
-   `python -m rfc_fetch`  
-   → `output/rfc_fetch/`
+### 前置：依赖与路径约定
 
-2. **应用层种子**  
-   `python build_app_dataset/generate_app_seeds.py`  
-   → `output/app_graph/protocol_seeds.yaml`
+| 用途 | 建议安装 |
+|------|-----------|
+| 构图与时间线（第 3、5、6 步） | `pip install -r build_app_dataset/requirements.txt`（PyYAML、requests、lxml、tqdm） |
+| 仅端口 CSV（第 1 步） | `pip install tqdm` 或 `pip install -r rfc_fetch/requirements.txt` |
 
-3. **应用层图**  
-   `python build_app_dataset/rfc_editor_graph.py --workers 16`  
-   → `output/app_graph/nodes.csv`、`edges.csv`  
-   （`--cache` 默认为 `output/app_graph/cache/`；参考文献用的 RFC 全文缓存在 `output/cache/rfc_body/`，与其它步骤共用）
+**默认关键路径（均可在代码里改成一处）**：  
+CSV 端口表 → `output/rfc_fetch/iana_wellknown_ports_rfcs.csv`；应用种子 → `output/app_graph/protocol_seeds.yaml`；网络种子 → `output/network_graph/protocol_seeds_network.yaml`；协议号表 → `output/cache/network/protocol-numbers-1.csv`。  
+RFC 全文磁盘缓存：**`output/cache/rfc_body/`**（`rfc_fetch`、网络层小数校验、`rfc_editor_graph` 参考文献解析共用；旧目录 `output/rfc_fetch/rfc_txt` 仍可被读取并迁到新路径）。  
+`rfc_editor_graph` 的索引与 **`rfc*.refs.txt`**：`output/app_graph/cache/`（`--cache` 默认）。
 
-4. **网络层种子**（需协议号 CSV，可加 `--fetch` 自动下载；**默认**会再打 Datatracker 并把命中 RFC 与 IANA 并集）  
-   `python build_network_dataset/generate_network_seeds.py --fetch`  
-   → `output/network_graph/protocol_seeds_network.yaml` 等（`--no-network-datatracker` 可仅用 IANA Reference）
+### 手动步骤（顺序不要打乱）
 
-5. **网络层图**  
-   `python build_app_dataset/rfc_editor_graph.py --seeds output/network_graph/protocol_seeds_network.yaml --out output/network_graph --workers 16`  
-   → `output/network_graph/nodes.csv`、`edges.csv`
+#### 步骤 1：端口 + Datatracker → CSV（可选但通常需要）
 
-6. **时间线 HTML**  
-   `python viz/render_timeline_echarts.py --foundation`  
-   → `output/viz/timeline_graph.html`
+在还没有 **`output/rfc_fetch/iana_wellknown_ports_rfcs.csv`** 时必须先执行本步。**若需整表重跑**（刷新 Datatracker 缓存与 RFC 正文校验），可随时再运行同一条命令。
 
-常用开关：`run_full_pipeline.py --help`、`python -m rfc_fetch --help`、`python viz/render_timeline_echarts.py --help`。
+```powershell
+python -m rfc_fetch
+```
+
+- **产出**：主文件为 **`output/rfc_fetch/iana_wellknown_ports_rfcs.csv`**；Datatracker 缓存 **`output/rfc_fetch/iana_datatracker_cache.json`**；开启默认「正文带端口」校验时会写入 **`output/cache/rfc_body/rfc*.txt`**。  
+- **耗时**：较慢（大量 Datatracker 与 RFC Editor 下载）。详见下文「`rfc_fetch` 说明摘要」。  
+- **等价于一键脚本**：若端口 CSV **已存在**，手动流程里可跳过本步（与 `run_full_pipeline.py` 只在缺失时才跑 `rfc_fetch` 一致）。
+
+#### 步骤 2：CSV → 应用层种子 YAML
+
+```powershell
+python build_app_dataset/generate_app_seeds.py
+```
+
+- **输入**：默认 `-i output/rfc_fetch/iana_wellknown_ports_rfcs.csv`。  
+- **产出**：`**output/app_graph/protocol_seeds.yaml**`。  
+- **是否联网**：**否**（只读 CSV + 内置 `core_app_protocol_seeds`）。
+
+#### 步骤 3：应用层 RFC 图
+
+```powershell
+python build_app_dataset/rfc_editor_graph.py --workers 16
+```
+
+等价于指定默认种子与输出目录时可写：
+
+```powershell
+python build_app_dataset/rfc_editor_graph.py --workers 16 --seeds output/app_graph/protocol_seeds.yaml --out output/app_graph
+```
+
+- **产出**：`**output/app_graph/nodes.csv**`、`**edges.csv**`；`**--cache**` 默认 **`output/app_graph/cache/`**（含 `rfc-index.xml`、各 `rfc*.refs.txt`）。  
+- **是否联网**：若缓存齐全可完全离线；否则可能下载 **`rfc-index.xml`** 与缺失的 **`rfcN.txt`**（见 `--rfc-body-cache`，默认 `output/cache/rfc_body`）。  
+- **加速**：`--skip-proto-refs` 可少算协议间引用边（与一键脚本的同名参数一致）。
+
+#### 步骤 4：网络层种子 YAML
+
+若本地还没有 **`output/cache/network/protocol-numbers-1.csv`**，请加上 **`--fetch`** 从 IANA 拉表（与一键脚本在缺失时自动加 `--fetch` 一致）：
+
+```powershell
+python build_network_dataset/generate_network_seeds.py --fetch
+```
+
+若 CSV 已在上述路径，可省略 `--fetch`：
+
+```powershell
+python build_network_dataset/generate_network_seeds.py
+```
+
+- **产出**：`**output/network_graph/protocol_seeds_network.yaml**`；Datatracker 缓存 **`output/network_graph/network_datatracker_cache.json`**；正文过滤会复用 **`output/cache/rfc_body/`**。  
+- **默认**：会对「IANA Reference 无 RFC」的协议号行做 Datatracker 并集，并用 RFC 正文校验 **IANA Decimal（协议号）**；只要 IANA 里已有 RFC 则**不**再查 Datatracker。仅想保留 IANA 时可加 **`--no-network-datatracker`**（见 `python build_network_dataset/generate_network_seeds.py --help`）。
+
+#### 步骤 5：网络层 RFC 图
+
+与步骤 3 **同一脚本**，换种子与输出目录；**建议与一键脚本相同**，显式传入 **`--cache`**，与应用层共用 `rfc-index.xml` 与 refs 缓存，避免重复下载索引：
+
+```powershell
+python build_app_dataset/rfc_editor_graph.py --workers 16 --cache output/app_graph/cache --seeds output/network_graph/protocol_seeds_network.yaml --out output/network_graph
+```
+
+- **产出**：`**output/network_graph/nodes.csv**`、`**edges.csv**`。
+
+#### 步骤 6：合并两图 → 时间线 HTML
+
+最简（与 **`run_full_pipeline.py` 默认不传 `--foundation`** 一致）：若第 5 步已完成，会自动合并 **`output/network_graph/`**；
+
+```powershell
+python viz/render_timeline_echarts.py
+```
+
+需要 **合成 IPv4/TCP/UDP 等锚点**，便于与 IANA「知名端口→传输」边对齐时，可加 **`--foundation`**（与时间线图小节说明一致）：
+
+```powershell
+python viz/render_timeline_echarts.py --foundation
+```
+
+- **默认产出**：`**output/viz/timeline_graph.html**`。  
+- **只要应用层**：跳过步骤 4–5，并在本步加 **`--no-merge-network`**。  
+**更多旋钮**：`--max-nodes`、`--out`、`--no-iana-transport-edges`、`--rfc-click` 等见 `python viz/render_timeline_echarts.py --help`。
+
+### 与一键脚本的对照
+
+| 手动跳过 / 等价 | 一键脚本做法 |
+|----------------|--------------|
+| 不想重做端口 CSV（已存在） | 不传 `--fetch-iana-ports` |
+| 强制重跑端口流水线 | `--fetch-iana-ports` |
+| 强制重下协议号 CSV | `--fetch-protocol-numbers` |
+| 不要做网络层 + 画图不并网络图 | `--no-network` |
+| 构图线程数、`--skip-proto-refs` | `run_full_pipeline.py --workers …`、`--skip-proto-refs` |
+
+完整参数：`python run_full_pipeline.py --help`、`python -m rfc_fetch --help`、`python build_network_dataset/generate_network_seeds.py --help`。
 
 ---
 
@@ -168,7 +250,7 @@ visualization_new/
 | `--no-cache` | 关 | 不使用缓存 |
 | `-j`, `--workers` | `24` | Datatracker 并发线程（遇 429 可降到 8–12） |
 | `--verify-port-in-rfc-body` / `--no-verify-port-in-rfc-body` | 默认开 | 是否在 RFC 正文里校验端口 |
-| `--max-datatracker-phrases` | `8` | 每个服务名最多尝试几条标题检索短语 |
+| `--max-datatracker-phrases` | `4` | 每个服务名最多尝试几条标题检索短语 |
 | `--single-datatracker-query` | — | 等价 `--max-datatracker-phrases 1`，只查一次 |
 
 ---

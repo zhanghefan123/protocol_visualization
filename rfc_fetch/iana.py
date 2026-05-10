@@ -86,6 +86,28 @@ def row_datatracker_lookup_key(row: dict[str, str]) -> str:
     return f"IANA-UNNAMED-{tp}-{port}-{digest}"
 
 
+def csv_service_name_display(row: dict[str, str], lookup_key: str) -> str:
+    """Human-readable ``Service Name`` column for enriched CSV exports.
+
+    IANA leaves *Service Name* blank for many placeholder rows; we still keep
+    ``lookup_key`` for Datatracker cache stability. When *Description* is exactly
+    ``Reserved`` (after normalisation), expose ``reserved-{transport}-{port}`` so seeds
+    and spreadsheets match intuition (e.g. ``reserved-tcp-0`` → ``RESERVED-TCP-0`` in YAML).
+    """
+
+    sn = (row.get("Service Name") or "").strip()
+    if sn:
+        return sn
+    desc_cf = normalize_search_phrase(row.get("Description") or "").casefold()
+    if desc_cf == "reserved":
+        port = (row.get("Port Number") or "").strip()
+        tp = _norm_transport_protocol(row.get("Transport Protocol") or "")
+        tl = tp.lower()
+        if port.isdigit():
+            return f"reserved-{tl}-{port}"
+    return lookup_key
+
+
 def unique_sorted_service_names(rows: list[dict[str, str]]) -> list[str]:
     return sorted({(r["Service Name"] or "").strip() for r in rows if (r["Service Name"] or "").strip()})
 

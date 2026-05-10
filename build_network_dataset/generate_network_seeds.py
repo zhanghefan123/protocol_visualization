@@ -277,7 +277,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--network-datatracker-workers", type=int, default=16)
     ap.add_argument("--network-datatracker-max-hits", type=int, default=10)
     ap.add_argument("--network-datatracker-min-phrase-len", type=int, default=2)
-    ap.add_argument("--network-datatracker-max-phrases", type=int, default=8)
+    ap.add_argument("--network-datatracker-max-phrases", type=int, default=4)
     ap.add_argument("--network-datatracker-timeout", type=float, default=45.0)
     ap.add_argument("--network-datatracker-retries", type=int, default=4)
     ap.add_argument(
